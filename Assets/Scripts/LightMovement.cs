@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class FollowMause : MonoBehaviour
+public class LightMovement : MonoBehaviour
 {
     private Vector3 mousePosition;
     public float moveSpeed = 0.1f;
