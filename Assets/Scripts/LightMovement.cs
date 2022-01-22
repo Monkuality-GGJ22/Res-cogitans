@@ -2,15 +2,23 @@ using UnityEngine;
 
 public class LightMovement : MonoBehaviour
 {
-    private Vector3 mousePosition;
-    public float moveSpeed = 0.1f;
+    private LayerMask mask;
+    private RaycastHit hit;
+    private Ray ray;
+    [SerializeField] float lightHeight;
 
-    // Update is called once per frame
+    private void Start()
+    {
+        mask = LayerMask.GetMask("Plane");
+    }
+
     void Update()
     {
-        mousePosition = Input.mousePosition;
-        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-        mousePosition.y = -20.8f;
-        transform.position = Vector3.Lerp(transform.position, mousePosition, moveSpeed);
+        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, mask))
+        {
+            transform.position = hit.point + (Vector3.up * lightHeight);
+        }
+
     }
 }
