@@ -41,9 +41,16 @@ public class SoulIntensity : MonoBehaviour
             float totalintensityReductionFactor = intensityReductionFactor+movingFactor;
             mLight.intensity -= totalintensityReductionFactor*Time.deltaTime;
             mLight.intensity = mLight.intensity < minLightIntensity ? minLightIntensity : mLight.intensity;
-            float lightPercent = (mLight.intensity - minLightIntensity) / (maxLightIntensity - minLightIntensity);
+
+            float lightPercent = 1 - (mLight.intensity - minLightIntensity) / (maxLightIntensity - minLightIntensity);
             float lightSpeed = lightMovement.MaxLightSpeed * lightPercent;
-            lightMovement.LightSpeed = lightSpeed >= lightMovement.MinLightSpeed ? lightSpeed : lightMovement.MinLightSpeed;
+            lightMovement.LightSpeed = lightSpeed;
+            if (lightSpeed < lightMovement.MinLightSpeed) {
+                lightMovement.LightSpeed = lightMovement.MinLightSpeed;
+            }else if(lightSpeed > lightMovement.MaxLightSpeed)
+            {
+                lightMovement.LightSpeed = lightMovement.MaxLightSpeed;
+            }
         }
     }
 }
