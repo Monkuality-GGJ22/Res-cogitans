@@ -141,7 +141,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   body: {fileID: 0}
   lightHeight: 3
-  lightSpeed: 1000
+  maxLightSpeed: 1000
+  minLightSpeed: 100
   distanceFromBody: 0
   drawDebugDir: 1
 --- !u!114 &-6679287458167339967
@@ -156,4 +157,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbf9a8648a9b96d439d58cee2e19a049, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LighIntensity: 32.55
+  minLightIntensity: 5
+  maxLightIntensity: 35
+  intensityReductionFactor: 0.1
