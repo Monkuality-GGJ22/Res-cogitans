@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4487556724448531742}
   - component: {fileID: 3682472159029367084}
   - component: {fileID: 4016473942060231675}
+  - component: {fileID: -6679287458167339967}
   m_Layer: 8
   m_Name: Soul
   m_TagString: Untagged
@@ -143,3 +144,16 @@ MonoBehaviour:
   lightSpeed: 1000
   distanceFromBody: 0
   drawDebugDir: 1
+--- !u!114 &-6679287458167339967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4016473942060231678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf9a8648a9b96d439d58cee2e19a049, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LighIntensity: 32.55
