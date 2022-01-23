@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 298574651}
   - component: {fileID: 298574650}
   - component: {fileID: 298574649}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -415,6 +415,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2281366167747155822, guid: 32301e7ac340c98439b116ef51be02dc, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2281366167747155823, guid: 32301e7ac340c98439b116ef51be02dc, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5144241049702414104, guid: 32301e7ac340c98439b116ef51be02dc, type: 3}
       propertyPath: m_Name
       value: Player

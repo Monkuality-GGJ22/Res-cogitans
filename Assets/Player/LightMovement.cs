@@ -14,13 +14,13 @@ public class LightMovement : MonoBehaviour
     private RaycastHit hit;
     private Ray ray;
     private Vector3 previousPosition, newPosition;
-    private Rigidbody rigidbody;
+    private Rigidbody rbody;
 
 
     private void Start()
     {
         mask = LayerMask.GetMask("Plane");
-        rigidbody = GetComponent<Rigidbody>();
+        rbody = GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -50,7 +50,7 @@ public class LightMovement : MonoBehaviour
     private void FixedUpdate()
     {
         var dir = newPosition - previousPosition;
-        rigidbody.velocity = dir * lightSpeed * Time.fixedDeltaTime;
+        rbody.velocity = dir * lightSpeed * Time.fixedDeltaTime;
 
         if (drawDebugDir) Debug.DrawLine(previousPosition, newPosition, Color.green, 1);
     }

@@ -7,11 +7,11 @@ public class PlayerMovement : MonoBehaviour
 
     private float inputX; 
     private float inputY;
-    private Rigidbody rigidbody;
+    private Rigidbody rbody;
 
     private void Start()
     {
-        rigidbody = GetComponent<Rigidbody>();    
+        rbody = GetComponent<Rigidbody>();    
     }
 
     private void Update()
@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
         float baseSpeed = playerSpeed * Time.fixedDeltaTime;
         Vector3 v = Vector3.right * inputX * baseSpeed +
             Vector3.forward * inputY * baseSpeed;
-        rigidbody.velocity = v;
+        rbody.velocity = v;
         if (drawDebug) Debug.DrawLine(transform.position, transform.position + v.normalized * v.magnitude/4, Color.red, 1);
     }
 }
