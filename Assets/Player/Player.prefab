@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5850232690342987528}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: PlayerSearch
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,6 +104,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4533151967645606092, guid: 16bd18607247d5b4ab540e360f44c59b, type: 3}
   m_PrefabInstance: {fileID: 2396468895092897709}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6902357484452498760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2281366167747155813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 445e6c0e45cdd4aa3b94ef10bb6bf4ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 3
+  lifeText: {fileID: 0}
 --- !u!1001 &2888051683012555595
 PrefabInstance:
   m_ObjectHideFlags: 0
