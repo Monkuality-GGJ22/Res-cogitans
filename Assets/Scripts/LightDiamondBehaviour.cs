@@ -9,7 +9,7 @@ public class LightDiamondBehaviour : MonoBehaviour
     [SerializeField] private float diamondHeight;
 
     private Light diamondLightComponent;
-    private Light soulLightComponent;
+    private SoulIntensity soulIntensityComponent;
 
     private void Start()
     {
@@ -27,14 +27,15 @@ public class LightDiamondBehaviour : MonoBehaviour
     }
 
     private void OnTriggerStay(Collider other)
-    {        
-        if (other.gameObject.GetComponent<LightMovement>() != null) //&& soul intensity < max intensity??
+    {
+        soulIntensityComponent = other.gameObject.GetComponent<SoulIntensity>();
+        if (soulIntensityComponent != null && 
+            other.gameObject.GetComponent<Light>().intensity < other.gameObject.GetComponent<SoulIntensity>().MaxLightIntensity)
         {
-            soulLightComponent = other.gameObject.GetComponent<Light>();
             //Decrease diamond intensity
             diamondLightComponent.intensity -= (chargingSpeed * Time.fixedDeltaTime);
             //Increase soul intensity
-            soulLightComponent.intensity += chargingSpeed * Time.fixedDeltaTime;            
+            other.gameObject.GetComponent<Light>().intensity += chargingSpeed * Time.fixedDeltaTime;            
         }
     }
 }
