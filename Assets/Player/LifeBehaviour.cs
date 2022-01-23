@@ -11,6 +11,9 @@ public class LifeBehaviour : MonoBehaviour
     [SerializeField]
     private Text lifeText;
 
+    [SerializeField]
+    private RespawnManager respawnManager;
+
     private int currentHealth;
     private int CurrentHealth
     {
@@ -34,22 +37,22 @@ public class LifeBehaviour : MonoBehaviour
         
     }
 
-    public void damagePlayer()
+    public void DamagePlayer()
     {
         CurrentHealth--;
         if(CurrentHealth <= 0)
         {
-            //martin ciao
+            respawnManager.RestartCheckpoint();
         }
     }
 
-    public void healPlayer()
+    public void HealPlayer()
     {
         if (CurrentHealth < maxHealth)
             CurrentHealth++;
     }
 
-    public void refillLife()
+    public void RefillLife()
     {
         CurrentHealth = maxHealth;
     }

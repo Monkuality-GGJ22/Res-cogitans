@@ -35,7 +35,7 @@ public class SoulIntensity : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    { timer += Time.deltaTime;
+    {
         if (timer >= 2f && mLight.intensity >= minLightIntensity)
         {
             float totalintensityReductionFactor = intensityReductionFactor+movingFactor;
@@ -52,5 +52,18 @@ public class SoulIntensity : MonoBehaviour
                 lightMovement.LightSpeed = lightMovement.MaxLightSpeed;
             }
         }
+        else timer += Time.deltaTime;
     }
+
+    public void RefillLight()
+    {
+        StartCoroutine(RefillCoroutine());
+    }
+    IEnumerator RefillCoroutine()
+    {
+        mLight.intensity = maxLightIntensity;
+        yield return new WaitForSeconds(1);
+        mLight.intensity = maxLightIntensity;
+    }
+
 }

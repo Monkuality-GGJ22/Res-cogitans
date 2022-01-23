@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class Kill_Y : MonoBehaviour
 {
+    [SerializeField] private RespawnManager respawnManager;
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.CompareTag("Player"))
         {
-            //gameover
+            respawnManager.RespawnPlayer();
         }
         else
         {
-            Destroy(collision.transform.gameObject);
+            var resettable = collision.gameObject.GetComponent<Resettable>();
+            if (resettable != null)
+            {
+                resettable.Respawn();
+            }
+            else
+            {
+                Destroy(collision.transform.gameObject);
+            }
         }
     }
 }

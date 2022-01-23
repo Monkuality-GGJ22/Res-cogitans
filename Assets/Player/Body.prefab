@@ -127,3 +127,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpeed: 500
   drawDebug: 1
+  positionStoreFrequency: 0.5

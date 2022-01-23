@@ -51,7 +51,7 @@ public class SearchAndDestroy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<LifeBehaviour>().damagePlayer();
+            collision.gameObject.GetComponent<LifeBehaviour>().DamagePlayer();
         }
     }
 
