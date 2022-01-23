@@ -44,6 +44,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Body
       objectReference: {fileID: 0}
+    - target: {fileID: 4533151967645606088, guid: 16bd18607247d5b4ab540e360f44c59b, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 4533151967645606092, guid: 16bd18607247d5b4ab540e360f44c59b, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -151,6 +155,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4016473942060231673, guid: bf8d0262fbf9e0544b5cbd710e382cf1, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4016473942060231675, guid: bf8d0262fbf9e0544b5cbd710e382cf1, type: 3}
+      propertyPath: body
+      value: 
+      objectReference: {fileID: 2281366167747155813}
     - target: {fileID: 4016473942060231678, guid: bf8d0262fbf9e0544b5cbd710e382cf1, type: 3}
       propertyPath: m_Name
       value: Soul

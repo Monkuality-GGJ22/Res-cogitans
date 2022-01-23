@@ -38,7 +38,7 @@ public class PressurePlateScript : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.transform.root.CompareTag("Player") || other.transform.root.CompareTag("Movable"))
+        if (other.transform.CompareTag("Player") || other.transform.CompareTag("Movable"))
         {
             if (pressedTimer > 0f)
             {

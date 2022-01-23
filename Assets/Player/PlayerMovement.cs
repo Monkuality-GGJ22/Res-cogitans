@@ -3,16 +3,29 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float playerSpeed;
+    [SerializeField] private bool drawDebug;
 
     private float inputX; 
     private float inputY;
+    private Rigidbody rigidbody;
+
+    private void Start()
+    {
+        rigidbody = GetComponent<Rigidbody>();    
+    }
 
     private void Update()
     {
         inputX = Input.GetAxis("Horizontal");
         inputY = Input.GetAxis("Vertical");
-        transform.position = new Vector3(transform.position.x + inputX * playerSpeed * Time.deltaTime, 
-            transform.position.y, 
-            transform.position.z + inputY * playerSpeed * Time.deltaTime);
+    }
+
+    private void FixedUpdate()
+    {
+        float baseSpeed = playerSpeed * Time.fixedDeltaTime;
+        Vector3 v = Vector3.right * inputX * baseSpeed +
+            Vector3.forward * inputY * baseSpeed;
+        rigidbody.velocity = v;
+        if (drawDebug) Debug.DrawLine(transform.position, transform.position + v.normalized * v.magnitude/4, Color.red, 1);
     }
 }
