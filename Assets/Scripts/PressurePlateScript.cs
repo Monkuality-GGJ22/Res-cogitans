@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Scripting;
 
-public class PressurePlateScript : MonoBehaviour
+public class PressurePlateScript : RemoteTrigger
 {
     [SerializeField] private float pressedTimer;
-    [SerializeField] private RemoteActivation activationObject;
 
     private float timer;
     private bool remoteState;
