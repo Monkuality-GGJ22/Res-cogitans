@@ -41,7 +41,7 @@ public class LightMovement : MonoBehaviour
         mask = LayerMask.GetMask("Plane");
         rbody = GetComponent<Rigidbody>();
         soulIntensity = GetComponent<SoulIntensity>();
-        lightSpeed = maxLightSpeed;
+        lightSpeed = minLightSpeed;
     }
 
     void Update()
