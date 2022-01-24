@@ -46,9 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b24eeb8dcda5b654ba3c8d89a816f041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  checkpoints:
-  - {fileID: 0}
-  - {fileID: 0}
+  checkpoints: []
   body: {fileID: 2281366167747155822}
   life: {fileID: 6902357484452498760}
   soul: {fileID: 817980325620119306}

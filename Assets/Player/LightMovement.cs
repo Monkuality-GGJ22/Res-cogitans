@@ -34,7 +34,18 @@ public class LightMovement : MonoBehaviour
     private Vector3 previousPosition, newPosition;
     private Rigidbody rbody;
     private SoulIntensity soulIntensity;
+    private bool disabledMovement;
+    private LayerMask enabledSoulLayer;
+    private LayerMask disableddSoulLayer;
+    private bool firstPosUpdate;
 
+
+    private void Awake()
+    {
+        enabledSoulLayer = gameObject.layer;
+        disableddSoulLayer = LayerMask.NameToLayer("Disabled Soul");
+        EnableMovement();
+    }
 
     private void Start()
     {
@@ -42,6 +53,7 @@ public class LightMovement : MonoBehaviour
         rbody = GetComponent<Rigidbody>();
         soulIntensity = GetComponent<SoulIntensity>();
         lightSpeed = minLightSpeed;
+        firstPosUpdate = false;
     }
 
     void Update()
@@ -53,7 +65,12 @@ public class LightMovement : MonoBehaviour
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, mask))
         {
             newPosition = hit.point + (Vector3.up * lightHeight);
-            
+            if (!firstPosUpdate)
+            {
+                firstPosUpdate = true;
+                previousPosition = newPosition;
+                transform.position = newPosition;
+            }
         }
         
 
@@ -81,9 +98,34 @@ public class LightMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        var dir = newPosition - previousPosition;
-        rbody.velocity = dir * lightSpeed * Time.fixedDeltaTime;
+        if (!disabledMovement)
+        {
+            var dir = newPosition - previousPosition;
+            rbody.velocity = dir * lightSpeed * Time.fixedDeltaTime;
+        }
+        else
+        {
+            rbody.velocity = Vector3.zero;
+        }
 
         if (drawDebugDir) Debug.DrawLine(previousPosition, newPosition, Color.green, 1);
     }
+
+    public void DisableMovement()
+    {
+        disabledMovement = true;
+        gameObject.layer = disableddSoulLayer;
+    }
+    public void EnableMovement()
+    {
+        disabledMovement = false;
+        gameObject.layer = enabledSoulLayer;
+    }
+
+    public LayerMask GetLayer(bool enabledLayer)
+    {
+        return enabledLayer ? enabledSoulLayer : disableddSoulLayer;
+    }
+
+
 }
