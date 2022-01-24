@@ -21,11 +21,6 @@ public class RespawnManager : MonoBehaviour
         activeCheckpoint = 0;
     }
 
-    public void AddCheckpoint()
-    {
-        checkpoints.Add(new CheckpointComponent());
-    }
-
     public void TrySetActiveCheckpoint(CheckpointComponent checkpoint)
     {
         int index = checkpoints.FindIndex(c => c.GetInstanceID() == checkpoint.GetInstanceID());
@@ -37,6 +32,23 @@ public class RespawnManager : MonoBehaviour
         Debug.Log($"Checkpoint reached: {index} - current active checkpoint: {activeCheckpoint}");
     }
 
+    public bool GetActiveCheckpointClearStatus()
+    {
+        if (activeCheckpoint > checkpoints.Count) return true;
+        return checkpoints[activeCheckpoint].ClearedCheckpoint;
+    }
+
+    public void NeuronActivated()
+    {
+        if (activeCheckpoint > checkpoints.Count) return;
+        checkpoints[activeCheckpoint].OnNeuronActivated();
+    }
+    public void NeuronDeactivated()
+    {
+        if (activeCheckpoint > checkpoints.Count) return;
+        checkpoints[activeCheckpoint].OnNeuronDeactivated();
+    }
+
     public void RefillPlayer()
     {
         life.RefillLife();
@@ -46,6 +58,7 @@ public class RespawnManager : MonoBehaviour
     public void RestartCheckpoint()
     {
         RefillPlayer();
+        if (activeCheckpoint > checkpoints.Count) return;
         body.Respawn(checkpoints[activeCheckpoint].transform.position);
         checkpoints[activeCheckpoint].ResetObjects();
     }
