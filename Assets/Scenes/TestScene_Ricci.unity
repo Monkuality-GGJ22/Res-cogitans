@@ -726,9 +726,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: ValuesBackground
       objectReference: {fileID: 0}
+    - target: {fileID: 5050289522502166183, guid: a1cee31bd8e82ec4fa05419fc220c644, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5151952300594542963, guid: a1cee31bd8e82ec4fa05419fc220c644, type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6586113266600529864, guid: a1cee31bd8e82ec4fa05419fc220c644, type: 3}
+      propertyPath: m_Text
+      value: Lorem Ipsum
       objectReference: {fileID: 0}
     - target: {fileID: 6586113266600529864, guid: a1cee31bd8e82ec4fa05419fc220c644, type: 3}
       propertyPath: m_Color.a
@@ -758,6 +766,14 @@ PrefabInstance:
       propertyPath: soul
       value: 
       objectReference: {fileID: 295382341}
+    - target: {fileID: 7213399883601323228, guid: a1cee31bd8e82ec4fa05419fc220c644, type: 3}
+      propertyPath: fadeDuration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213399883601323228, guid: a1cee31bd8e82ec4fa05419fc220c644, type: 3}
+      propertyPath: displayTimePerWord
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 7213399883601323231, guid: a1cee31bd8e82ec4fa05419fc220c644, type: 3}
       propertyPath: m_Pivot.x
       value: 0

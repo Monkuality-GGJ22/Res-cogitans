@@ -11,15 +11,7 @@ public class RespawnEditor : Editor
     public override void OnInspectorGUI()
     {
         DrawDefaultInspector();
-
-
         Show(serializedObject.FindProperty("checkpoints"));
-
-        RespawnManager myScript = (RespawnManager)target;
-        if (GUILayout.Button("Add Checkpoint"))
-        {
-            myScript.AddCheckpoint();
-        }
     }
 
     public static void Show(SerializedProperty list)
@@ -32,7 +24,18 @@ public class RespawnEditor : Editor
             if (checkpoint.objectReferenceValue != null)
             {
                 SerializedObject serializedObject = new UnityEditor.SerializedObject(checkpoint.objectReferenceValue);
+                GUILayout.BeginHorizontal();
+                GUILayout.Space(EditorGUI.indentLevel + 50);
+                GUILayout.BeginVertical();
+
                 EditorGUILayout.PropertyField(serializedObject.FindProperty("resettableObjects"));
+                EditorGUILayout.PropertyField(serializedObject.FindProperty("neurons"));
+                EditorGUILayout.PropertyField(serializedObject.FindProperty("endWall"));
+
+                GUILayout.EndVertical();
+                GUILayout.EndHorizontal();
+                GUILayout.Space(EditorGUI.indentLevel + 50);
+
             }
         }
     }

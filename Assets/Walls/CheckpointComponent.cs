@@ -5,10 +5,21 @@ using UnityEngine;
 public class CheckpointComponent : MonoBehaviour
 {
     public List<Resettable> resettableObjects;
+    public List<NeuronComponent> neurons;
+    public RemoteActivation endWall;
 
     public RespawnManager Manager { set { manager = value; } get { return manager; } }
     private RespawnManager manager;
-    
+    private int activeNeurons;
+
+    public bool ClearedCheckpoint { get { return clearedCheckpoint; } }
+    private bool clearedCheckpoint;
+
+    private void Start()
+    {
+        activeNeurons = 0;
+        clearedCheckpoint = false;
+    }
 
     public void CheckIn()
     {
@@ -18,9 +29,38 @@ public class CheckpointComponent : MonoBehaviour
 
     public void ResetObjects()
     {
-        for (int i = 0; i < resettableObjects.Count; ++i)
+        if (clearedCheckpoint) return;
+
+        int i;
+        for (i= 0; i < resettableObjects.Count; ++i)
         {
             resettableObjects[i].Respawn();
         }
+        for (i = 0; i < neurons.Count; ++i)
+        {
+            neurons[i].Respawn();
+        }
+    }
+
+
+    public void OnNeuronActivated()
+    {
+        if (clearedCheckpoint) return;
+        
+        activeNeurons++;
+        if (activeNeurons >= neurons.Count)
+        {
+            clearedCheckpoint = true;
+            endWall.Activate();
+        }
+
+    }
+
+    public void OnNeuronDeactivated()
+    {
+        if (clearedCheckpoint) return;
+
+        activeNeurons--;
+        if (activeNeurons < 0) activeNeurons = 0;
     }
 }
