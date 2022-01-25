@@ -6,8 +6,8 @@ using UnityEngine;
 public class RemoteTrigger : MonoBehaviour
 {
     [Header("Debug")]
-    [SerializeField] private bool drawLines = true;
-    [SerializeField] private Color color = Color.red;
+    public bool drawLines = true;
+    public Color color = Color.red;
     [Header("Specifics")]
     [SerializeField] public RemoteActivation activationObject;
 

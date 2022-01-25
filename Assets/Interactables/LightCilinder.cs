@@ -5,10 +5,22 @@ using UnityEngine.Scripting;
 
 public class LightCilinder : RemoteTrigger
 {
+
+    [SerializeField] private RemoteActivation activationObject2;
+    [SerializeField] private RemoteActivation activationObject3;
+
+    private int chargeLevel = 0;
+
     [SerializeField] private float pressedTimer;
 
     private float timer;
     private bool remoteState;
+
+    [SerializeField] private float lightThreshold1;
+    [SerializeField] private float lightThreshold2;
+    [SerializeField] private float lightThreshold3;
+
+    
 
     void Start()
     {
@@ -28,7 +40,7 @@ public class LightCilinder : RemoteTrigger
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.transform.GetComponent<LightMovement>())
         {
@@ -36,8 +48,25 @@ public class LightCilinder : RemoteTrigger
             {
                 timer = pressedTimer;
             }
-            TryRemoteAction(true);
             transform.gameObject.GetComponent<Light>().enabled = true;
+
+            //The light intensity of the cylinder depends on the intensity of the soul (for now it uses the same values as the thresholds)
+            if(other.gameObject.GetComponent<Light>().intensity <= lightThreshold1)
+            {
+                transform.gameObject.GetComponent<Light>().intensity = lightThreshold1;
+                chargeLevel = 1;
+            }
+            else if (other.gameObject.GetComponent<Light>().intensity > lightThreshold1 && other.gameObject.GetComponent<Light>().intensity <= lightThreshold2)
+            {
+                transform.gameObject.GetComponent<Light>().intensity = lightThreshold2;
+                chargeLevel = 2;
+            } 
+            else if (other.gameObject.GetComponent<Light>().intensity > lightThreshold3)
+            {
+                transform.gameObject.GetComponent<Light>().intensity = lightThreshold3;
+                chargeLevel = 3;
+            }
+            TryRemoteAction(true);
         }
     }
 
@@ -50,6 +79,7 @@ public class LightCilinder : RemoteTrigger
                 timer = pressedTimer;
             }
             TryRemoteAction(false);
+            chargeLevel = 0;
             transform.gameObject.GetComponent<Light>().enabled = false;
         }
     }
@@ -60,7 +90,21 @@ public class LightCilinder : RemoteTrigger
         {
             if (!remoteState)
             {
-                activationObject.Activate();
+                switch (chargeLevel)
+                {                    
+                    case 3:
+                        activationObject3.Activate();
+                        goto case 2;
+                    case 2:
+                        activationObject2.Activate();
+                        goto case 1;
+                    case 1:
+                        activationObject.Activate();
+                        break;
+                    default:
+                        break;
+                }
+
                 remoteState = true;
             }
         }
@@ -68,9 +112,23 @@ public class LightCilinder : RemoteTrigger
         {
             if (remoteState)
             {
+                activationObject3.Deactivate();
+                activationObject2.Deactivate();
                 activationObject.Deactivate();
+
                 remoteState = false;
             }
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (drawLines && activationObject != null && activationObject2 != null && activationObject3 != null)
+        {
+            Gizmos.color = color;
+            Gizmos.DrawLine(transform.position, activationObject.transform.position);
+            Gizmos.DrawLine(transform.position, activationObject2.transform.position);
+            Gizmos.DrawLine(transform.position, activationObject3.transform.position);
         }
     }
 }

@@ -16,8 +16,11 @@ public class NeuronComponent : RemoteActivation
 
     public override void Deactivate()
     {
-        Disable();
-        manager.NeuronDeactivated();
+        if(light.enabled)
+        {
+            Disable();
+            manager.NeuronDeactivated();
+        }
     }
 
     public override void Respawn()
@@ -31,14 +34,12 @@ public class NeuronComponent : RemoteActivation
             light.enabled = false;
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         manager = FindObjectOfType<RespawnManager>();
         light = GetComponent<Light>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         
