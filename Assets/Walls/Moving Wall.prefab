@@ -1,0 +1,119 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4057280477950752924
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6782655066516229792, guid: 8081e4d8cddab284097f977d10aaffb8, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6782655066516229792, guid: 8081e4d8cddab284097f977d10aaffb8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6782655066516229792, guid: 8081e4d8cddab284097f977d10aaffb8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6782655066516229792, guid: 8081e4d8cddab284097f977d10aaffb8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6782655066516229792, guid: 8081e4d8cddab284097f977d10aaffb8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6782655066516229792, guid: 8081e4d8cddab284097f977d10aaffb8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6782655066516229792, guid: 8081e4d8cddab284097f977d10aaffb8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6782655066516229792, guid: 8081e4d8cddab284097f977d10aaffb8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6782655066516229792, guid: 8081e4d8cddab284097f977d10aaffb8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6782655066516229792, guid: 8081e4d8cddab284097f977d10aaffb8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6782655066516229792, guid: 8081e4d8cddab284097f977d10aaffb8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6782655066516229804, guid: 8081e4d8cddab284097f977d10aaffb8, type: 3}
+      propertyPath: m_Name
+      value: Moving Wall
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8081e4d8cddab284097f977d10aaffb8, type: 3}
+--- !u!1 &7380994902623368752 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6782655066516229804, guid: 8081e4d8cddab284097f977d10aaffb8, type: 3}
+  m_PrefabInstance: {fileID: 4057280477950752924}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5191362307440020769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7380994902623368752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b108c67b8e03f694f9f26dfe8fd07d8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0.66543084
+      outSlope: 0.66543084
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.42435616
+      value: 0.2823797
+      inSlope: -0.05921045
+      outSlope: -0.069185495
+      tangentMode: 65
+      weightedMode: 0
+      inWeight: 0.5927748
+      outWeight: 0.82745624
+    - serializedVersion: 3
+      time: 0.6343244
+      value: 0.26785293
+      inSlope: -0.069185495
+      outSlope: 0.08140215
+      tangentMode: 5
+      weightedMode: 0
+      inWeight: 0.2493433
+      outWeight: 0.027762618
+    - serializedVersion: 3
+      time: 2
+      value: 1
+      inSlope: 0.5361061
+      outSlope: 0.5361061
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  finalPosOffset: {x: 0, y: 0, z: 0}
