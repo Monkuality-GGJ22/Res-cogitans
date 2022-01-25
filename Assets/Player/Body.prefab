@@ -128,3 +128,9 @@ MonoBehaviour:
   playerSpeed: 500
   drawDebug: 1
   positionStoreFrequency: 0.5
+  stunTime: 0.3
+  invicibilityTime: 0.8
+  blinkVelocity: 0.1
+  imPushingyou: {x: 0, y: 0, z: 0}
+  hitted: 0
+  invincible: 0

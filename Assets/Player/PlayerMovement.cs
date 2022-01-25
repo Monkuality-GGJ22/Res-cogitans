@@ -8,6 +8,17 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float positionStoreFrequency;
 
+    [SerializeField] private float stunTime = 0.3f;
+    [SerializeField] private float invicibilityTime = 0.5f;
+    [SerializeField] private float blinkVelocity = 0.1f;
+    public Vector3 imPushingyou;
+    private MeshRenderer mr;
+    private float blinkTimer = 0f;
+    private float invincibilityTimer = 0f;
+    private float hittedTimer = -10f;
+    public bool hitted = false;
+    public bool invincible = false;
+
     private float inputX;
     private float inputY;
     private Rigidbody rbody;
@@ -16,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        mr = GetComponent<MeshRenderer>();
         rbody = GetComponent<Rigidbody>();
         prevPosition = Vector3.zero;
         prevPositionTimer = 0f;
@@ -38,18 +50,73 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void FixedUpdate()
+
+        //non so cosa sto facendo, non toccate
+        //sto soffrendo
     {
-        float baseSpeed = playerSpeed * Time.fixedDeltaTime;
-        Vector3 v = Vector3.right * inputX +
-            Vector3.forward * inputY;
+        if (!hitted)
+        {
+            float baseSpeed = playerSpeed * Time.fixedDeltaTime;
+            Vector3 v = Vector3.right * inputX +
+                Vector3.forward * inputY;
 
-        if (v.sqrMagnitude > 1)
-            v.Normalize();
+            if (v.sqrMagnitude > 1)
+                v.Normalize();
 
-        if (transform.position.y >= prevPosition.y)
-            rbody.velocity = v * baseSpeed;
+            if (transform.position.y >= prevPosition.y)
+                rbody.velocity = v * baseSpeed;
 
-        if (drawDebug) Debug.DrawLine(transform.position, transform.position + v.normalized * v.magnitude / 4, Color.red, 1);
+            if (invincible)
+            {
+                invincibilityTimer -= Time.deltaTime;
+                if (invincibilityTimer <= 0)
+                {
+                    mr.enabled = true;
+                    invincible = false;
+                }
+                else
+                {
+                    blinkTimer -= Time.deltaTime;
+                    if(blinkTimer <= 0)
+                    {
+                        blinkTimer = blinkVelocity;
+                        mr.enabled = !mr.enabled;
+                    }
+                }
+
+            }
+
+            if (drawDebug) Debug.DrawLine(transform.position, transform.position + v.normalized * v.magnitude / 4, Color.red, 1);
+        }
+        else
+        {
+            if (hittedTimer == -10)
+                hittedTimer = stunTime;
+
+            blinkTimer -= Time.deltaTime;
+            if (blinkTimer <= 0)
+            {
+                blinkTimer = blinkVelocity;
+                mr.enabled = !mr.enabled;
+            }
+
+            if (imPushingyou != Vector3.zero)
+            {
+                rbody.AddForce(imPushingyou, ForceMode.Impulse);
+                imPushingyou = Vector3.zero;
+            }
+            hittedTimer -= Time.deltaTime;
+
+            if (hittedTimer <= 0)
+            {
+                hittedTimer = -10;
+                hitted = false;
+                invincible = true;
+                invincibilityTimer = invicibilityTime;
+                blinkTimer = blinkVelocity;
+                mr.enabled = false;
+            }
+        }
     }
 
 
@@ -68,6 +135,7 @@ public class PlayerMovement : MonoBehaviour
         prevPositionTimer = 0f;
         rbody.velocity = Vector3.zero;
     }
+
 
 
     private void OnTriggerEnter(Collider other)
