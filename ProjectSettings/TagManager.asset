@@ -46,3 +46,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Wall
+    uniqueID: 2600837905
+    locked: 0
+  - name: Non Interactable
+    uniqueID: 1406561199
+    locked: 0
+  - name: Interactable
+    uniqueID: 1181365853
+    locked: 0
+  - name: Moving objects
+    uniqueID: 1612025141
+    locked: 0
+  - name: Player
+    uniqueID: 2269035819
+    locked: 0

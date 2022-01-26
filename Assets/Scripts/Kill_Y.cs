@@ -5,6 +5,11 @@ using UnityEngine;
 public class Kill_Y : MonoBehaviour
 {
     [SerializeField] private RespawnManager respawnManager;
+
+    private void Start()
+    {
+        if (respawnManager == null) respawnManager = FindObjectOfType<RespawnManager>();
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.CompareTag("Player"))
