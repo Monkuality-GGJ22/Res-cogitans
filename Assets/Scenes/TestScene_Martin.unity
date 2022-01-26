@@ -790,6 +790,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2281366167747155822, guid: 32301e7ac340c98439b116ef51be02dc, type: 3}
+      propertyPath: initialWait
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3051804160885989054, guid: 32301e7ac340c98439b116ef51be02dc, type: 3}
       propertyPath: checkpoints.Array.size
       value: 2
@@ -816,7 +820,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5850232690342987528, guid: 32301e7ac340c98439b116ef51be02dc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 2.44
       objectReference: {fileID: 0}
     - target: {fileID: 5850232690342987528, guid: 32301e7ac340c98439b116ef51be02dc, type: 3}
       propertyPath: m_LocalPosition.z

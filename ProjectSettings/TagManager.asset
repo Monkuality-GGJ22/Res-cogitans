@@ -8,6 +8,7 @@ TagManager:
   - IgnoreY
   - PlayerSearch
   - Enemy
+  - Floor
   layers:
   - Default
   - TransparentFX

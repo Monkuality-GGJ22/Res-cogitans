@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float positionStoreFrequency;
 
+    [Header("Combat")]
     [SerializeField] private float stunTime = 0.3f;
     [SerializeField] private float invicibilityTime = 0.5f;
     [SerializeField] private float blinkVelocity = 0.1f;
@@ -68,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (invincible)
             {
-                invincibilityTimer -= Time.deltaTime;
+                invincibilityTimer -= Time.fixedDeltaTime;
                 if (invincibilityTimer <= 0)
                 {
                     mr.enabled = true;
@@ -76,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
                 }
                 else
                 {
-                    blinkTimer -= Time.deltaTime;
+                    blinkTimer -= Time.fixedDeltaTime;
                     if(blinkTimer <= 0)
                     {
                         blinkTimer = blinkVelocity;
@@ -144,6 +145,14 @@ public class PlayerMovement : MonoBehaviour
         if (checkpoint != null)
         {
             checkpoint.CheckIn();
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Floor"))
+        {
+            prevPosition = transform.position;
         }
     }
 
