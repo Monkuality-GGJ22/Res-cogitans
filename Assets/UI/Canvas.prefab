@@ -1023,7 +1023,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeDuration: 1
-  displayTimePerWord: 0.3
+  displayTimePerWord: 0.25
   lightSlider: {fileID: 446334909}
   soulIntensityText: {fileID: 2947375666529408986}
   soul: {fileID: 0}
