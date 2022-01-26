@@ -14,6 +14,8 @@ public class EnemySpawner : RemoteActivation
     private int maxEnemiesInside = 4;
     private int enemiesNumberOnScreen = 0;
     private float currentTime;
+    [SerializeField]
+    private bool canBeReactivated = false;
 
 
     private void Start()
@@ -45,12 +47,13 @@ public class EnemySpawner : RemoteActivation
 
     public override void Activate()
     {
-        gameObject.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     public override void Deactivate()
     {
-        gameObject.SetActive(false);
+        if(canBeReactivated)
+            gameObject.SetActive(true);
     }
 
     public override void Respawn()
