@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySpawner : MonoBehaviour
+public class EnemySpawner : RemoteActivation
 {
 
     [SerializeField]
@@ -10,6 +10,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private float spawnTime = 1f;
     [SerializeField]
+    private List<GameObject> enemies;
     private int maxEnemiesInside = 4;
     private int enemiesNumberOnScreen = 0;
     private float currentTime;
@@ -29,6 +30,7 @@ public class EnemySpawner : MonoBehaviour
                 GameObject gameObject;
                 gameObject = Instantiate(enemyInside, transform.position, Quaternion.identity);
                 gameObject.GetComponent<SearchAndDestroy>().immaClone = true;
+                enemies.Add(gameObject);
                 enemiesNumberOnScreen++;
             }
             currentTime = spawnTime;
@@ -41,14 +43,24 @@ public class EnemySpawner : MonoBehaviour
         enemiesNumberOnScreen--;
     }
 
-    public void Activate()
+    public override void Activate()
     {
         gameObject.SetActive(true);
     }
 
-    public void Disable()
+    public override void Deactivate()
     {
         gameObject.SetActive(false);
     }
 
+    public override void Respawn()
+    {
+        foreach(GameObject enemy in enemies)
+        {
+            Destroy(enemy);
+        }
+        enemies.Clear();
+        enemiesNumberOnScreen = 0;
+        currentTime = spawnTime;
+    }
 }
