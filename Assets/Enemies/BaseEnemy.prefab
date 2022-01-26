@@ -126,14 +126,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcfbd751326454a7cb27821f2b7bd242, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  terminatorTime: 3
-  parryTime: 0.3
-  parryTimeInLight: 0.5
-  speed: 200
-  speedInLight: 200
+  terminatorTime: 2.5
+  parryTime: 0.5
+  parryTimeInLight: 1
+  lightRecharge: 5
+  actualSpeed: 0
+  speed: 300
+  speedInLightDivider: 1.7
+  speedInLight: 0
   turnRate: 10
   enemyForce: 20
   stunTime: 1
+  toBeKilledTime: 0
 --- !u!1 &1776539035274433872
 GameObject:
   m_ObjectHideFlags: 0

@@ -22,16 +22,17 @@ public class SearchAndDestroy : MonoBehaviour
     
     [SerializeField]
     private float terminatorTime = 3.0f;
-    [SerializeField]
-    private float parryTime = 0.3f;
-    [SerializeField]
-    private float parryTimeInLight = 0.5f;
+    public float parryTime = 0.5f;
+    public float parryTimeInLight = 0.8f;
     private bool isKillable = false;
+    [SerializeField]
+    private float lightRecharge = 5f;
 
+    public float actualSpeed;
+    public float speed = 300f;
     [SerializeField]
-    private float speed = 300f;
-    [SerializeField]
-    private float speedInLight = 200f;
+    private float speedInLightDivider = 1.5f;
+    public float speedInLight;
     private Rigidbody rb;
     public float turnRate = 10f ;
     private GameObject player;
@@ -44,11 +45,13 @@ public class SearchAndDestroy : MonoBehaviour
     private bool mannaggiaAMePotevoAndareAZappare = false;
 
     private float killingTime;
-    private float toBeKilledTime;
+    public float toBeKilledTime;
 
 
     void Start()
-    {
+    {   speed += Random.Range(-30f, +30f);
+        speedInLight = speed / speedInLightDivider;
+        actualSpeed = speed;
         lightBlade = transform.GetChild(0).gameObject;
         lightBlade.GetComponent<Light>().intensity = lightIntesity;
         player = GameObject.FindGameObjectWithTag("PlayerSearch").transform.Find("Body").gameObject;
@@ -99,7 +102,7 @@ public class SearchAndDestroy : MonoBehaviour
     private void FixedUpdate()
     {
         if(currentStunTime <= 0 && !mannaggiaAMePotevoAndareAZappare)
-            rb.velocity = speed * direction * Time.deltaTime;
+            rb.velocity = actualSpeed * direction * Time.deltaTime;
         else
         {
             mannaggiaAMePotevoAndareAZappare = false;
@@ -127,7 +130,9 @@ public class SearchAndDestroy : MonoBehaviour
                 }
             }
             else
-                Destroy(gameObject);
+            {
+                dieAndIncreaseLight();
+            }
 
 
         }
@@ -156,8 +161,20 @@ public class SearchAndDestroy : MonoBehaviour
                 }
             }
             else
-                Destroy(gameObject);
+            {
+                dieAndIncreaseLight();
+            }
         }
-    }
 
+}
+
+    private void dieAndIncreaseLight()
+    {
+        GameObject lightGameObject = GameObject.FindGameObjectWithTag("PlayerSearch").transform.Find("Soul").gameObject;
+        Light light = lightGameObject.GetComponent<Light>();
+        var num = light.intensity;
+        light.intensity = num + lightRecharge > lightGameObject.GetComponent<SoulIntensity>().MaxLightIntensity ?
+            lightGameObject.GetComponent<SoulIntensity>().MaxLightIntensity : num + lightRecharge;
+        Destroy(gameObject);
+    }
 }

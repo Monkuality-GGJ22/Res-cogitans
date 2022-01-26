@@ -14,7 +14,7 @@ public class SoulIntensity : MonoBehaviour
 
     public float MinLightIntensity
     {
-        get { return maxLightIntensity; }
+        get { return minLightIntensity; }
     }
 
     private Light mLight;
@@ -64,6 +64,11 @@ public class SoulIntensity : MonoBehaviour
         mLight.intensity = maxLightIntensity;
         yield return new WaitForSeconds(1);
         mLight.intensity = maxLightIntensity;
+    }
+
+
+    public float GetSoulIntensity() {
+        return mLight.intensity;
     }
 
 }

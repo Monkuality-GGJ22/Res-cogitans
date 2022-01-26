@@ -39,6 +39,8 @@ public class LightMovement : MonoBehaviour
     private LayerMask disableddSoulLayer;
     private bool firstPosUpdate;
 
+    private float range;
+
 
     private void Awake()
     {
@@ -52,6 +54,7 @@ public class LightMovement : MonoBehaviour
         mask = LayerMask.GetMask("Plane");
         rbody = GetComponent<Rigidbody>();
         soulIntensity = GetComponent<SoulIntensity>();
+        range = soulIntensity.MaxLightIntensity - soulIntensity.MinLightIntensity;
         lightSpeed = minLightSpeed;
         firstPosUpdate = false;
     }
@@ -127,5 +130,37 @@ public class LightMovement : MonoBehaviour
         return enabledLayer ? enabledSoulLayer : disableddSoulLayer;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            SearchAndDestroy script = other.gameObject.GetComponent<SearchAndDestroy>();
+            script.toBeKilledTime = script.parryTimeInLight;
+        }
+
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            float correctedValue = soulIntensity.GetSoulIntensity() - soulIntensity.MinLightIntensity;
+            float multiplier = ((correctedValue) / range) + 1;
+            SearchAndDestroy script = other.gameObject.GetComponent<SearchAndDestroy>();
+            script.actualSpeed = script.speed / multiplier;
+        }
+    }
+
+    private void OnTriggerExit(Collider collision)
+    {
+
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            SearchAndDestroy script = collision.gameObject.GetComponent<SearchAndDestroy>();
+            script.actualSpeed = script.speed;
+            script.toBeKilledTime = script.parryTime;
+        }
+    }
 
 }

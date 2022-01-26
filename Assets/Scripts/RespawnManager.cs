@@ -34,18 +34,18 @@ public class RespawnManager : MonoBehaviour
 
     public bool GetActiveCheckpointClearStatus()
     {
-        if (activeCheckpoint > checkpoints.Count) return true;
+        if (activeCheckpoint >= checkpoints.Count) return true;
         return checkpoints[activeCheckpoint].ClearedCheckpoint;
     }
 
     public void NeuronActivated()
     {
-        if (activeCheckpoint > checkpoints.Count) return;
+        if (activeCheckpoint >= checkpoints.Count) return;
         checkpoints[activeCheckpoint].OnNeuronActivated();
     }
     public void NeuronDeactivated()
     {
-        if (activeCheckpoint > checkpoints.Count) return;
+        if (activeCheckpoint >= checkpoints.Count) return;
         checkpoints[activeCheckpoint].OnNeuronDeactivated();
     }
 
@@ -58,7 +58,7 @@ public class RespawnManager : MonoBehaviour
     public void RestartCheckpoint()
     {
         RefillPlayer();
-        if (activeCheckpoint > checkpoints.Count) return;
+        if (activeCheckpoint >= checkpoints.Count) return;
         body.Respawn(checkpoints[activeCheckpoint].transform.position);
         checkpoints[activeCheckpoint].ResetObjects();
     }
