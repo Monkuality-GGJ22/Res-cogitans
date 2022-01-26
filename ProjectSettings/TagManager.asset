@@ -9,6 +9,7 @@ TagManager:
   - PlayerSearch
   - Enemy
   - Floor
+  - EnemySpawner
   layers:
   - Default
   - TransparentFX

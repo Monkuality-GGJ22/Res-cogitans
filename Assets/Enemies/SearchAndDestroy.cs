@@ -47,6 +47,8 @@ public class SearchAndDestroy : MonoBehaviour
     private float killingTime;
     public float toBeKilledTime;
 
+    public bool immaClone = false;
+
     [SerializeField] NeuronComponent neuroneDaAttivare;
 
     void Start()
@@ -102,17 +104,20 @@ public class SearchAndDestroy : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(currentStunTime <= 0 && !mannaggiaAMePotevoAndareAZappare)
-            rb.velocity = actualSpeed * direction * Time.deltaTime;
+        if (currentStunTime <= 0 && !mannaggiaAMePotevoAndareAZappare)
+        {
+
+            rb.velocity = actualSpeed * direction * Time.fixedDeltaTime + new Vector3(0.0f, rb.velocity.y, 0.0f); ;
+        }
         else
         {
             mannaggiaAMePotevoAndareAZappare = false;
-            if(whereImGoing != Vector3.zero)
+            if (whereImGoing != Vector3.zero)
             {
                 rb.AddForce(whereImGoing * enemyForce, ForceMode.Impulse);
                 whereImGoing = Vector3.zero;
             }
-            currentStunTime -= Time.deltaTime;
+            currentStunTime -= Time.fixedDeltaTime;
         }
     }
 
@@ -179,6 +184,15 @@ public class SearchAndDestroy : MonoBehaviour
 
         if (neuroneDaAttivare != null)
             neuroneDaAttivare.Activate();
+
+        if (immaClone)
+        {
+            GameObject spawnerGameObject = GameObject.FindGameObjectWithTag("EnemySpawner");
+            if (spawnerGameObject)
+            {
+                spawnerGameObject.GetComponent<EnemySpawner>().onEnemyKill();
+            }
+        }
 
         Destroy(gameObject);
     }
