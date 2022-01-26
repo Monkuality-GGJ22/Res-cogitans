@@ -188,7 +188,7 @@ MonoBehaviour:
   body: {fileID: 0}
   lightHeight: 3
   maxLightSpeed: 1000
-  minLightSpeed: 100
+  minLightSpeed: 800
   distanceFromBody: 0
   drawDebugDir: 1
 --- !u!114 &-6679287458167339967
