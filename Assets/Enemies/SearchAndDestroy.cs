@@ -47,6 +47,7 @@ public class SearchAndDestroy : MonoBehaviour
     private float killingTime;
     public float toBeKilledTime;
 
+    [SerializeField] NeuronComponent neuroneDaAttivare;
 
     void Start()
     {   speed += Random.Range(-30f, +30f);
@@ -175,6 +176,10 @@ public class SearchAndDestroy : MonoBehaviour
         var num = light.intensity;
         light.intensity = num + lightRecharge > lightGameObject.GetComponent<SoulIntensity>().MaxLightIntensity ?
             lightGameObject.GetComponent<SoulIntensity>().MaxLightIntensity : num + lightRecharge;
+
+        if (neuroneDaAttivare != null)
+            neuroneDaAttivare.Activate();
+
         Destroy(gameObject);
     }
 }
