@@ -99,7 +99,7 @@ public class UIBehaviour : MonoBehaviour
 
     public void setLight(float light)
     {
-        lightSlider.value = light;
+        lightSlider.value = light;        
     }
 
     public void setHealth(int health)

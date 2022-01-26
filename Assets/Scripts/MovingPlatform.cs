@@ -23,7 +23,6 @@ public class MovingPlatform : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        Debug.Log("On platform");
         if(other.gameObject.GetComponent<PlayerMovement>())
         {
             previousParent = other.gameObject.transform.parent;
@@ -33,7 +32,6 @@ public class MovingPlatform : MonoBehaviour
 
     private void OnCollisionExit(Collision other)
     {
-        Debug.Log("Off platform");
         if (other.gameObject.GetComponent<PlayerMovement>())
         {
             other.gameObject.transform.parent = previousParent;
