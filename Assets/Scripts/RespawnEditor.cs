@@ -1,9 +1,6 @@
+#if UNITY_EDITOR
 using UnityEngine;
-using System.Collections;
 using UnityEditor;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
 
 [CustomEditor(typeof(RespawnManager))]
 public class RespawnEditor : Editor
@@ -40,3 +37,4 @@ public class RespawnEditor : Editor
         }
     }
 }
+#endif

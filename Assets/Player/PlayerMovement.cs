@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -152,8 +153,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Floor"))
         {
-            prevPosition = transform.position;
+            StartCoroutine(PositionCoroutine());
         }
     }
-
+    IEnumerator PositionCoroutine()
+    {
+        yield return new WaitForSeconds(0.5f);
+        prevPosition = transform.position;
+    }
 }

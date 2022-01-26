@@ -14,7 +14,9 @@ public class LightCilinder : RemoteTrigger
     [SerializeField] private float pressedTimer;
 
     private float timer;
-    private bool remoteState;
+    private bool remoteState1;
+    private bool remoteState2;
+    private bool remoteState3;
 
     [SerializeField] private float lightThreshold1;
     [SerializeField] private float lightThreshold2;
@@ -25,7 +27,9 @@ public class LightCilinder : RemoteTrigger
     void Start()
     {
         timer = 0f;
-        remoteState = false;
+        remoteState1 = false;
+        remoteState2 = false;
+        remoteState3 = false;
     }
 
     void Update()
@@ -61,7 +65,7 @@ public class LightCilinder : RemoteTrigger
                 transform.gameObject.GetComponent<Light>().intensity = lightThreshold2;
                 chargeLevel = 2;
             } 
-            else if (other.gameObject.GetComponent<Light>().intensity > lightThreshold3)
+            else
             {
                 transform.gameObject.GetComponent<Light>().intensity = lightThreshold3;
                 chargeLevel = 3;
@@ -88,37 +92,67 @@ public class LightCilinder : RemoteTrigger
     {
         if (activate)
         {
-            if (!remoteState)
-            {
-                //Confermo che questo switch non mi ha fatto dormire nella notte tra il 25 ed il 26 gennaio 2022, provvederò
-                //ad emettere una denunzia verso Martin Lagas per danni morali a me ed a Dennis Ritchie
-                switch (chargeLevel)
-                {                    
-                    case 3:
+            switch (chargeLevel)
+            {                    
+                case 3:
+                    if (!remoteState3)
+                    {
                         activationObject3.Activate();
-                        goto case 2;
-                    case 2:
+                        remoteState3 = true;
+                    }
+                    goto case 2;
+                case 2:
+                    if (!remoteState2)
+                    {
                         activationObject2.Activate();
-                        goto case 1;
-                    case 1:
+                        remoteState2 = true;
+                    }
+                    goto case 1;
+                case 1:
+                    if (!remoteState1)
+                    {
                         activationObject.Activate();
-                        break;
-                    default:
-                        break;
-                }
+                        remoteState1 = true;
+                    }
+                    if (chargeLevel < 3 && remoteState3)
+                    {
+                        activationObject3.Deactivate();
+                        remoteState3 = false;
+                    }
+                    if (chargeLevel < 2 && remoteState2)
+                    {
+                        activationObject2.Deactivate();
+                        remoteState2 = false;
+                    }
+                    break;
+                default:
+                    if (remoteState3) activationObject3.Deactivate();
+                    if (remoteState2) activationObject2.Deactivate();
+                    if (remoteState1) activationObject.Deactivate();
 
-                remoteState = true;
+
+                    remoteState3 = false;
+                    remoteState2 = false;
+                    remoteState1 = false;
+                    break;
             }
         }
         else
         {
-            if (remoteState)
+            if (remoteState3)
             {
                 activationObject3.Deactivate();
+                remoteState3 = false;
+            }
+            if (remoteState2)
+            {
                 activationObject2.Deactivate();
+                remoteState2 = false;
+            }
+            if (remoteState1)
+            {
                 activationObject.Deactivate();
-
-                remoteState = false;
+                remoteState1 = false;
             }
         }
     }
