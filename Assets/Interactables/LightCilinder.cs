@@ -90,6 +90,8 @@ public class LightCilinder : RemoteTrigger
         {
             if (!remoteState)
             {
+                //Confermo che questo switch non mi ha fatto dormire nella notte tra il 25 ed il 26 gennaio 2022, provvederò
+                //ad emettere una denunzia verso Martin Lagas per danni morali a me ed a Dennis Ritchie
                 switch (chargeLevel)
                 {                    
                     case 3:

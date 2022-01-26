@@ -12,6 +12,6 @@ public class CubeTriggerTest : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        uiBehaviour.PrintUIMessage("Test message the longest of messages holy moly so long");
+        uiBehaviour.PrintUIMessage("This is a very long test message but longer then the one before, so we can say this is very long.\nBut I need it longer, so here's an even longer message.");
     }
 }
