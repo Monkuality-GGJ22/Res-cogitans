@@ -26,6 +26,7 @@ public class LightMovement : MonoBehaviour
     [SerializeField] private float minLightSpeed;
     [SerializeField] private float distanceFromBody;
     [SerializeField] private bool drawDebugDir;
+    [SerializeField] private float distanceFromDarkCenter;
 
     private float lightSpeed;
     private LayerMask mask;
@@ -40,6 +41,8 @@ public class LightMovement : MonoBehaviour
     private bool firstPosUpdate;
 
     private float range;
+
+    private Bounds darkBounds;
 
 
     private void Awake()
@@ -89,6 +92,17 @@ public class LightMovement : MonoBehaviour
             newPosition = heightResetPosition;
            
         }
+
+        if (disabledMovement)
+        {
+            var point = darkBounds.ClosestPoint(newPosition);
+            point.y = newPosition.y;
+            var center = darkBounds.center;
+            center.y = point.y;
+            var dir = Vector3.ClampMagnitude(center - point, distanceFromDarkCenter);
+            newPosition = center - dir;
+        }
+
         if (newPosition != null && newPosition!= previousPosition) {
             soulIntensity.MovingFactor = Vector3.Distance(newPosition, previousPosition); 
         }
@@ -96,33 +110,35 @@ public class LightMovement : MonoBehaviour
         {
             soulIntensity.MovingFactor = 1f;
         }
-
     }
 
     private void FixedUpdate()
     {
-        if (!disabledMovement)
-        {
-            var dir = newPosition - previousPosition;
-            rbody.velocity = dir * lightSpeed * Time.fixedDeltaTime;
-        }
-        else
-        {
-            rbody.velocity = Vector3.zero;
-        }
+        //if (!disabledMovement)
+        //{
+        //    var dir = newPosition - previousPosition;
+        //    rbody.velocity = dir * lightSpeed * Time.fixedDeltaTime;
+        //}
+        //else
+        //{
+        //    rbody.velocity = Vector3.zero;
+        //}
+        var dir = newPosition - previousPosition;
+        rbody.velocity = dir * lightSpeed * Time.fixedDeltaTime;
 
         if (drawDebugDir) Debug.DrawLine(previousPosition, newPosition, Color.green, 1);
     }
 
-    public void DisableMovement()
+    public void DisableMovement(Bounds bounds)
     {
         disabledMovement = true;
-        gameObject.layer = disableddSoulLayer;
+        darkBounds = bounds;
+        //gameObject.layer = disableddSoulLayer;
     }
     public void EnableMovement()
     {
         disabledMovement = false;
-        gameObject.layer = enabledSoulLayer;
+        //gameObject.layer = enabledSoulLayer;
     }
 
     public LayerMask GetLayer(bool enabledLayer)

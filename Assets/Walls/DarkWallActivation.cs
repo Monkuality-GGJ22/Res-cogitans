@@ -11,13 +11,14 @@ public class DarkWallActivation : RemoteActivation
     private LightMovement soul;
     private int firstFrames;
     private bool caughtSoul;
-
+    private GameObject lightTrap;
     public override void Activate()
     {
         collider.enabled = true;
         renderer.enabled = true;
         caughtSoul = false;
         collider.isTrigger = true;
+        lightTrap.SetActive(false);
         firstFrames = 0;
     }
 
@@ -25,6 +26,7 @@ public class DarkWallActivation : RemoteActivation
     {
         collider.enabled = false;
         renderer.enabled = false;
+        lightTrap.SetActive(false);
         soul.EnableMovement();
     }
 
@@ -39,6 +41,8 @@ public class DarkWallActivation : RemoteActivation
         collider = GetComponent<Collider>();
         renderer = GetComponent<MeshRenderer>();
         soul = FindObjectOfType<LightMovement>();
+        lightTrap = transform.GetChild(0).gameObject;
+        lightTrap.SetActive(false);
         if (!startEnabled) Deactivate();
     }
 
@@ -62,7 +66,8 @@ public class DarkWallActivation : RemoteActivation
         if (freedSoul != null && freedSoul.gameObject.layer == freedSoul.GetLayer(true))
         {
             caughtSoul = true;
-            soul.DisableMovement();
+            lightTrap.SetActive(true);
+            soul.DisableMovement(collider.bounds);
         }
     }
 
@@ -73,6 +78,7 @@ public class DarkWallActivation : RemoteActivation
         {
             freedSoul.EnableMovement();
             collider.isTrigger = false;
+            lightTrap.SetActive(false);
         }
     }
 }
