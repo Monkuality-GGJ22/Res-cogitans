@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class Button : RemoteTrigger
 {
+    [SerializeField] private Sprite off, on;
+
     private bool inRange, remoteState;
+    private SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         inRange = false;
+        remoteState = false;
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        spriteRenderer.sprite = off;
     }
 
     // Update is called once per frame
@@ -19,9 +25,15 @@ public class Button : RemoteTrigger
         {
             remoteState = !remoteState;
             if (remoteState)
+            {
                 activationObject.Activate();
+                spriteRenderer.sprite = on;
+            }
             else
+            {
                 activationObject.Deactivate();
+                spriteRenderer.sprite = off;
+            }
         }
 
     }
