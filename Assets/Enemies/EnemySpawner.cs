@@ -11,6 +11,7 @@ public class EnemySpawner : RemoteActivation
     private float spawnTime = 1f;
     [SerializeField]
     private List<GameObject> enemies;
+    [SerializeField]
     private int maxEnemiesInside = 4;
     private int enemiesNumberOnScreen = 0;
     private float currentTime;
