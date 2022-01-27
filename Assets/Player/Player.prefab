@@ -144,9 +144,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 445e6c0e45cdd4aa3b94ef10bb6bf4ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 3
-  lifeText: {fileID: 0}
   respawnManager: {fileID: 3051804160885989054}
+  maxHealth: 3
+  currentHealth: 0
 --- !u!1001 &2888051683012555595
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -239,6 +239,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 2281366167747155813}
+    - target: {fileID: 6372837671808209716, guid: 3e533f06e946d364aa10cdf8b2e0f691, type: 3}
+      propertyPath: orthographic size
+      value: 7.85
+      objectReference: {fileID: 0}
     - target: {fileID: 6372837671808209717, guid: 3e533f06e946d364aa10cdf8b2e0f691, type: 3}
       propertyPath: m_RootOrder
       value: 2
