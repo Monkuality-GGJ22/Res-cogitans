@@ -6,15 +6,20 @@ using UnityEngine.Scripting;
 public class PressurePlateScript : RemoteTrigger
 {
     [SerializeField] private float pressedTimer;
+    [SerializeField] private Sprite off, on;
 
     private float timer;
     private bool remoteState;
+
+    private SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
     void Start()
     {
         timer = 0f;
         remoteState = false;
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        spriteRenderer.sprite = off;
     }
 
     // Update is called once per frame
@@ -55,6 +60,7 @@ public class PressurePlateScript : RemoteTrigger
             {
                 activationObject.Activate();
                 remoteState = true;
+                spriteRenderer.sprite = on;
             }
         }
         else
@@ -63,6 +69,7 @@ public class PressurePlateScript : RemoteTrigger
             {
                 activationObject.Deactivate();
                 remoteState = false;
+                spriteRenderer.sprite = off;
             }
         }
     }

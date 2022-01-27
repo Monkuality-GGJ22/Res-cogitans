@@ -40,7 +40,7 @@ SpriteRenderer:
   m_GameObject: {fileID: 6585096882103934738}
   m_Enabled: 1
   m_CastShadows: 0
-  m_ReceiveShadows: 0
+  m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -50,7 +50,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4b65c1a78dd5d45d7a95a41aed80d1ee, type: 2}
+  - {fileID: 2100000, guid: c670483bfde26b545a2a82b958dbda59, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 1181365853
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+  m_Sprite: {fileID: -6025554343243793721, guid: b8875fdc1a2440c438f39a480d337a16, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -144,3 +144,5 @@ MonoBehaviour:
   color: {r: 1, g: 0, b: 0, a: 1}
   activationObject: {fileID: 0}
   pressedTimer: 0.1
+  off: {fileID: -6025554343243793721, guid: b8875fdc1a2440c438f39a480d337a16, type: 3}
+  on: {fileID: -368718826349097156, guid: b8875fdc1a2440c438f39a480d337a16, type: 3}
