@@ -189,7 +189,7 @@ MonoBehaviour:
   lightHeight: 3
   maxLightSpeed: 1000
   minLightSpeed: 800
-  distanceFromBody: 0
+  distanceFromBody: 12
   drawDebugDir: 1
 --- !u!114 &-6679287458167339967
 MonoBehaviour:
