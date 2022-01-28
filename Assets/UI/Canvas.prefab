@@ -1026,10 +1026,10 @@ MonoBehaviour:
   displayTimePerWord: 0.25
   lightSlider: {fileID: 446334909}
   soulIntensityText: {fileID: 2947375666529408986}
-  soul: {fileID: 0}
+  soul: {fileID: 4016473942060231678, guid: bf8d0262fbf9e0544b5cbd710e382cf1, type: 3}
   healthSlider: {fileID: 1030974800}
   healthLifesText: {fileID: 2947375668300081581}
-  body: {fileID: 0}
+  body: {fileID: 4533151967645606088, guid: 16bd18607247d5b4ab540e360f44c59b, type: 3}
 --- !u!1 &2947375668300081583
 GameObject:
   m_ObjectHideFlags: 0
