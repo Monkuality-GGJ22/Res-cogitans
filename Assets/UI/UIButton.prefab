@@ -202,8 +202,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SoundOnClickButton, Assembly-CSharp
-        m_MethodName: SoundOnClick
+        m_TargetAssemblyTypeName: ButtonSound, Assembly-CSharp
+        m_MethodName: ReproduceAudio
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

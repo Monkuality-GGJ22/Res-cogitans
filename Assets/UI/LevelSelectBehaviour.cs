@@ -1,20 +1,29 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LevelSelectBehaviour : MonoBehaviour
 {
-    public void Level1Clicked()
+    [SerializeField] private GameObject lvl1Button;
+
+    private AudioSource audioSource;
+
+    private void Start()
     {
-        SceneManager.LoadScene("Level1Scene", LoadSceneMode.Single);
+        audioSource = lvl1Button.GetComponent<AudioSource>();
     }
 
-    public void Level2Clicked()
-    {
-        SceneManager.LoadScene("TestScene_Ricci", LoadSceneMode.Single);
-    }
+    public void Level1Clicked() => StartCoroutine(SceneCoroutine("TestScene_Ricci"));
+    public void Level2Clicked() => StartCoroutine(SceneCoroutine("TestScene_Ricci"));
+    public void Level3Clicked() => StartCoroutine(SceneCoroutine("TestScene_Ricci"));
+    public void MainMenuClicked() => StartCoroutine(SceneCoroutine("MainMenuScene"));
 
-    public void BackToMainMenuClicked()
+    public IEnumerator SceneCoroutine(string sceneName)
     {
-        SceneManager.LoadScene("MainMenuScene", LoadSceneMode.Single);
+        var temp = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
+        temp.allowSceneActivation = false;
+        audioSource.Play();
+        yield return new WaitForSeconds(audioSource.clip.length);
+        temp.allowSceneActivation = true;
     }
 }

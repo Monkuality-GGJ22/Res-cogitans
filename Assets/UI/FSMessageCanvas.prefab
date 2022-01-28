@@ -420,6 +420,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 523109791231052778}
     m_Modifications:
+    - target: {fileID: 22961769370384644, guid: 4855ca753eb1932449a4f76f32b48720, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 22961769370384644, guid: 4855ca753eb1932449a4f76f32b48720, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: HideFullscreenMessage
+      objectReference: {fileID: 0}
+    - target: {fileID: 22961769370384644, guid: 4855ca753eb1932449a4f76f32b48720, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: FSMessage, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 22961769370384645, guid: 4855ca753eb1932449a4f76f32b48720, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

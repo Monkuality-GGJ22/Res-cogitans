@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FSMessage : MonoBehaviour
@@ -18,7 +17,6 @@ public class FSMessage : MonoBehaviour
     {
         messageCanvas.SetActive(true);
         Time.timeScale = 0f;
-
     }
 
     private void Hide()
