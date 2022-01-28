@@ -7,11 +7,12 @@ public class NeuronComponent : RemoteActivation
 
     private RespawnManager manager;
     private Light light;
-
+    private Animator animator;
     public override void Activate()
     {
         light.enabled = true;
         manager.NeuronActivated();
+        animator.SetTrigger("Activate");
     }
 
     public override void Deactivate()
@@ -20,12 +21,14 @@ public class NeuronComponent : RemoteActivation
         {
             Disable();
             manager.NeuronDeactivated();
+            animator.SetTrigger("Deactivate");
         }
     }
 
     public override void Respawn()
     {
         Disable();
+        animator.SetTrigger("Reset");
     }
 
     private void Disable()
@@ -38,6 +41,8 @@ public class NeuronComponent : RemoteActivation
     {
         manager = FindObjectOfType<RespawnManager>();
         light = GetComponent<Light>();
+        animator = GetComponentInChildren<Animator>();
+        animator.SetTrigger("Reset");
     }
 
     void Update()

@@ -17,6 +17,8 @@ public class LightCilinder : RemoteTrigger
     private bool remoteState1;
     private bool remoteState2;
     private bool remoteState3;
+    private Animator animator;
+
 
     [SerializeField] private float lightThreshold1;
     [SerializeField] private float lightThreshold2;
@@ -30,6 +32,8 @@ public class LightCilinder : RemoteTrigger
         remoteState1 = false;
         remoteState2 = false;
         remoteState3 = false;
+        animator = GetComponentInChildren<Animator>();
+        animator.SetTrigger("Off");
     }
 
     void Update()
@@ -99,6 +103,7 @@ public class LightCilinder : RemoteTrigger
                     {
                         activationObject3.Activate();
                         remoteState3 = true;
+                        animator.SetTrigger("3");
                     }
                     goto case 2;
                 case 2:
@@ -106,6 +111,7 @@ public class LightCilinder : RemoteTrigger
                     {
                         activationObject2.Activate();
                         remoteState2 = true;
+                        animator.SetTrigger("2");
                     }
                     goto case 1;
                 case 1:
@@ -113,16 +119,19 @@ public class LightCilinder : RemoteTrigger
                     {
                         activationObject.Activate();
                         remoteState1 = true;
+                        animator.SetTrigger("1");
                     }
                     if (chargeLevel < 3 && remoteState3)
                     {
                         activationObject3.Deactivate();
                         remoteState3 = false;
+                        animator.SetTrigger("2");
                     }
                     if (chargeLevel < 2 && remoteState2)
                     {
                         activationObject2.Deactivate();
                         remoteState2 = false;
+                        animator.SetTrigger("1");
                     }
                     break;
                 default:
@@ -134,11 +143,13 @@ public class LightCilinder : RemoteTrigger
                     remoteState3 = false;
                     remoteState2 = false;
                     remoteState1 = false;
+                    animator.SetTrigger("Off");
                     break;
             }
         }
         else
         {
+            animator.SetTrigger("Off");
             if (remoteState3)
             {
                 activationObject3.Deactivate();
