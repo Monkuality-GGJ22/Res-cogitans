@@ -141,7 +141,7 @@ public class PlayerMovement : MonoBehaviour
                 audioSource.Play();
             }
         }
-        else
+        else if(audioSource.clip ==footSteps)
             audioSource.Stop();
 
         if (rbody.velocity.y < 0)
