@@ -191,6 +191,7 @@ MonoBehaviour:
   minLightSpeed: 800
   distanceFromBody: 12
   drawDebugDir: 1
+  distanceFromDarkCenter: 0
 --- !u!114 &-6679287458167339967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,6 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbf9a8648a9b96d439d58cee2e19a049, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minLightIntensity: 5
-  maxLightIntensity: 35
+  minLightIntensity: 1
+  maxLightIntensity: 8
   intensityReductionFactor: 0.1
+  intensityReductionFactorInMovement: 0

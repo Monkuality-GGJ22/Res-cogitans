@@ -7,6 +7,7 @@ public class SoulIntensity : MonoBehaviour
     [SerializeField] private float minLightIntensity;
     [SerializeField] private float maxLightIntensity;
     [SerializeField] private float intensityReductionFactor;
+    [SerializeField] private float intensityReductionFactorInMovement;
 
     public float MaxLightIntensity{
         get{ return maxLightIntensity; }
@@ -38,8 +39,8 @@ public class SoulIntensity : MonoBehaviour
     {
         if (timer >= 2f && mLight.intensity >= minLightIntensity)
         {
-            float totalintensityReductionFactor = intensityReductionFactor+movingFactor;
-            mLight.intensity -= totalintensityReductionFactor*Time.deltaTime;
+            float totalintensityReductionFactor = intensityReductionFactor+movingFactor *intensityReductionFactorInMovement ;
+            mLight.intensity -= totalintensityReductionFactor * Time.deltaTime;
             mLight.intensity = mLight.intensity < minLightIntensity ? minLightIntensity : mLight.intensity;
 
             float lightPercent = 1 - (mLight.intensity - minLightIntensity) / (maxLightIntensity - minLightIntensity);
