@@ -211,9 +211,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20344fff283616a408ce857587fd9074, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  diamondIntensity: 4
   chargingSpeed: 20
+  rechargingSpeed: 1
   diamondMovingSpeed: 1
   diamondHeight: 2
+  rechargeable: 1
 --- !u!136 &7087511426579995137
 CapsuleCollider:
   m_ObjectHideFlags: 0
