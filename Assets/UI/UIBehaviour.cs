@@ -45,8 +45,9 @@ public class UIBehaviour : MonoBehaviour
         setHealth(lifeBehaviour.CurrentHealth);
     }
 
-    public void PrintUIMessage(string message)
+    public bool PrintUIMessage(string message)
     {
+        bool messageShown = false;
         if (!displayingMessage)
         {
             UIMessageBG = transform.Find("UIMessage").Find("MessageBG").gameObject;
@@ -57,7 +58,9 @@ public class UIBehaviour : MonoBehaviour
             wordCount = message.Split(delimiters, StringSplitOptions.RemoveEmptyEntries).Length;
 
             StartCoroutine(Fade(wordCount));
+            messageShown = true;
         }
+        return messageShown;
     }
 
     IEnumerator Fade(int wordCount)
