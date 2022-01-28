@@ -24,10 +24,7 @@ public class PressurePlateScript : RemoteTrigger
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         spriteRenderer.sprite = off;
 
-        audioSource = GetComponent<AudioSource>();
-        //audioSource.
-        //audioSource.Play();
-        
+        audioSource = GetComponent<AudioSource>();        
     }
 
     void Update()
@@ -63,6 +60,10 @@ public class PressurePlateScript : RemoteTrigger
                 activationObject.Activate();
                 remoteState = true;
                 spriteRenderer.sprite = on;
+
+                //Sound effect for pressing
+                audioSource.clip = pressAudioClip;
+                audioSource.Play();
             }
         }
         else
@@ -72,6 +73,10 @@ public class PressurePlateScript : RemoteTrigger
                 activationObject.Deactivate();
                 remoteState = false;
                 spriteRenderer.sprite = off;
+
+                //Sound effect for releasing
+                audioSource.clip = releaseAudioClip;
+                audioSource.Play();
             }
         }
     }

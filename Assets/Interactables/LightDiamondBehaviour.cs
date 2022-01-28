@@ -11,9 +11,12 @@ public class LightDiamondBehaviour : MonoBehaviour
     private Light diamondLightComponent;
     private SoulIntensity soulIntensityComponent;
 
+    private AudioSource audioSource;
+
     private void Start()
     {
         diamondLightComponent = gameObject.GetComponent<Light>();
+        audioSource = gameObject.GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -37,5 +40,11 @@ public class LightDiamondBehaviour : MonoBehaviour
             //Increase soul intensity
             other.gameObject.GetComponent<Light>().intensity += chargingSpeed * Time.fixedDeltaTime;            
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.GetComponent<SoulIntensity>())
+            audioSource.Play();
     }
 }

@@ -20550,6 +20550,10 @@ PrefabInstance:
       propertyPath: intensityReductionFactor
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1651146547156343123, guid: 32301e7ac340c98439b116ef51be02dc, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2281366167747155809, guid: 32301e7ac340c98439b116ef51be02dc, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.84
