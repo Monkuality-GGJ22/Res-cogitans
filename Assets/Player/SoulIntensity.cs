@@ -56,15 +56,17 @@ public class SoulIntensity : MonoBehaviour
         else timer += Time.deltaTime;
     }
 
-    public void RefillLight()
+    public void RefillLight(bool fromDeath)
     {
-        StartCoroutine(RefillCoroutine());
+        StartCoroutine(RefillCoroutine(fromDeath));
     }
-    IEnumerator RefillCoroutine()
+    IEnumerator RefillCoroutine(bool fromDeath)
     {
         mLight.intensity = maxLightIntensity;
-        yield return new WaitForSeconds(1);
+        if (fromDeath) lightMovement.ForceSetPos();
+        yield return new WaitForSeconds(lightMovement.startupTime);
         mLight.intensity = maxLightIntensity;
+        if (fromDeath) lightMovement.ForceSetPos();
     }
 
 

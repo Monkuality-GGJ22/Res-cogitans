@@ -49,15 +49,15 @@ public class RespawnManager : MonoBehaviour
         checkpoints[activeCheckpoint].OnNeuronDeactivated();
     }
 
-    public void RefillPlayer()
+    public void RefillPlayer(bool fromDeath = false)
     {
         life.RefillLife();
-        soul.RefillLight();
+        soul.RefillLight(fromDeath);
     }
 
     public void RestartCheckpoint()
     {
-        RefillPlayer();
+        RefillPlayer(true);
         if (activeCheckpoint >= checkpoints.Count) return;
         body.Respawn(checkpoints[activeCheckpoint].transform.position);
         checkpoints[activeCheckpoint].ResetObjects();

@@ -27,6 +27,7 @@ public class LightMovement : MonoBehaviour
     [SerializeField] private float distanceFromBody;
     [SerializeField] private bool drawDebugDir;
     [SerializeField] private float distanceFromDarkCenter;
+    [SerializeField] public float startupTime;
 
     private float lightSpeed;
     private LayerMask mask;
@@ -39,6 +40,7 @@ public class LightMovement : MonoBehaviour
     private LayerMask enabledSoulLayer;
     private LayerMask disableddSoulLayer;
     private bool firstPosUpdate;
+    private float startupTimer;
 
     private float range;
 
@@ -67,6 +69,12 @@ public class LightMovement : MonoBehaviour
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         previousPosition = transform.position;
+
+        if (startupTimer < startupTime)
+        {
+            startupTimer += Time.deltaTime;
+            ForceSetPos();
+        }
 
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, mask))
         {
@@ -108,7 +116,7 @@ public class LightMovement : MonoBehaviour
         }
         else
         {
-            soulIntensity.MovingFactor = 1f;
+            soulIntensity.MovingFactor = 0f;
         }
     }
 
@@ -127,6 +135,13 @@ public class LightMovement : MonoBehaviour
         rbody.velocity = dir * lightSpeed * Time.fixedDeltaTime;
 
         if (drawDebugDir) Debug.DrawLine(previousPosition, newPosition, Color.green, 1);
+    }
+
+    public void ForceSetPos()
+    {
+        Vector3 heightResetPosition = body.transform.position;
+        heightResetPosition.y = previousPosition.y;
+        transform.position = heightResetPosition;
     }
 
     public void DisableMovement(Bounds bounds)

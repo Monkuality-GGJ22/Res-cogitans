@@ -191,7 +191,8 @@ MonoBehaviour:
   minLightSpeed: 800
   distanceFromBody: 7
   drawDebugDir: 1
-  distanceFromDarkCenter: 0
+  distanceFromDarkCenter: 1
+  startupTime: 0.2
 --- !u!114 &-6679287458167339967
 MonoBehaviour:
   m_ObjectHideFlags: 0
