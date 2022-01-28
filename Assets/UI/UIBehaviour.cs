@@ -95,6 +95,10 @@ public class UIBehaviour : MonoBehaviour
             elapsedTime += Time.deltaTime;
             yield return null;
         }
+        bgColor.a = 0f;
+        textColor.a = 0f;
+        UIMessageBG.GetComponent<Image>().color = bgColor;
+        UIMessageText.GetComponent<Text>().color = textColor;
 
         displayingMessage = false;
 
