@@ -58,9 +58,14 @@ public class SearchAndDestroy : RemoteActivation
 
     public bool immaClone = false;
 
+    [SerializeField] private ParticleSystem hitEffect;
+
     [SerializeField] NeuronComponent neuroneDaAttivare;
 
     [SerializeField] private bool startDeactivated = true;
+
+    [SerializeField] private Transform deathGameObject;
+
     private bool dead = false;
     Vector3 startPosition;
 
@@ -169,6 +174,8 @@ public class SearchAndDestroy : RemoteActivation
                     scriptMagico.hitted = true;
                     audioSource.clip = hitPlayer;
                     audioSource.Play();
+                    hitEffect.gameObject.transform.LookAt(collision.gameObject.transform, Vector3.up);
+                    hitEffect.Play();
                 }
             }
             else
@@ -186,6 +193,8 @@ public class SearchAndDestroy : RemoteActivation
             whereImGoing.Normalize();
             audioSource.clip = hitEnemy;
             audioSource.Play();
+            hitEffect.gameObject.transform.LookAt(collision.gameObject.transform);
+            hitEffect.Play();
         }
 
     }
@@ -214,7 +223,6 @@ public class SearchAndDestroy : RemoteActivation
 
     private void dieAndIncreaseLight()
     {
-        Transform deathGameObject = transform.Find("DeathObjectSound");
         deathGameObject.parent = null;
         deathGameObject.gameObject.SetActive(true);
         GameObject lightGameObject = GameObject.FindGameObjectWithTag("PlayerSearch").transform.Find("Soul").gameObject;
