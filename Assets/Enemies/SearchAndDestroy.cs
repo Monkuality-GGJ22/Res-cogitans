@@ -90,7 +90,6 @@ public class SearchAndDestroy : RemoteActivation
 
         transform.RotateAround(transform.position, turnAxis, Time.deltaTime * turnRate * angleToTarget);
         animateMovement(direction);
-        Debug.Log(direction);
         if (killingTime > 0) {
             isKillable = false;
             lightBlade.GetComponent<Light>().color = Color.red;
