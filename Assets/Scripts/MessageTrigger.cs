@@ -20,7 +20,7 @@ public class MessageTrigger : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (activable && !messageShown)
+        if (activable && !messageShown && other.gameObject.GetComponent<PlayerMovement>())
         {
             messageShown = uiBehaviour.PrintUIMessage(message);
             if(messageShown)
