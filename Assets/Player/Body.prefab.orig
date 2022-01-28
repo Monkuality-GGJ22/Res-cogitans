@@ -89,12 +89,18 @@ MonoBehaviour:
   imPushingyou: {x: 0, y: 0, z: 0}
   hitted: 0
   invincible: 0
+<<<<<<< Updated upstream
 --- !u!82 &4011575638595284734
 AudioSource:
+=======
+--- !u!1 &6463857594865377358
+GameObject:
+>>>>>>> Stashed changes
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
   m_GameObject: {fileID: 4533151967645606088}
   m_Enabled: 0
   serializedVersion: 4
@@ -185,12 +191,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &6463857594865377358
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
+=======
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7254107075679467405}
@@ -287,3 +288,4 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+>>>>>>> Stashed changes

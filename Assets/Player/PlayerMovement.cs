@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float stunTime = 0.3f;
     [SerializeField] private float invicibilityTime = 0.5f;
     [SerializeField] private float blinkVelocity = 0.1f;
+
+    private Animator animator;
     public Vector3 imPushingyou;
     private MeshRenderer mr;
     private float blinkTimer = 0f;
@@ -26,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rbody;
     private Vector3 prevPosition;
     private float prevPositionTimer;
+    private int state;
 
     private AudioSource audioSource;
 
@@ -33,9 +36,10 @@ public class PlayerMovement : MonoBehaviour
     {
         mr = GetComponent<MeshRenderer>();
         rbody = GetComponent<Rigidbody>();
+        animator = GetComponentInChildren<Animator>();
+        state = 0;
         prevPosition = Vector3.zero;
         prevPositionTimer = 0f;
-
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -43,13 +47,15 @@ public class PlayerMovement : MonoBehaviour
     {
         inputX = Input.GetAxis("Horizontal");
         inputY = Input.GetAxis("Vertical");
+        Debug.Log($"X{inputX},Y{inputY}");
+        animateMovement(inputX, inputY);
 
         prevPositionTimer += Time.deltaTime;
         if (prevPositionTimer >= positionStoreFrequency)
         {
             prevPositionTimer = 0f;
             if (transform.position.y >= prevPosition.y)
-            {
+            {   
                 prevPosition = transform.position;
             }
         }
@@ -170,5 +176,54 @@ public class PlayerMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         prevPosition = transform.position;
+    }
+
+    private void animateMovement(float _inputX,float _inputY) {
+
+        //0 Idle, 1 top, 2 Right, 3 Down, 4 Left
+        int tmpState = 0;
+
+        if (_inputX > 0)
+        {
+            tmpState = 2;       
+        }
+        else if (_inputX < 0)
+        {
+            tmpState = 4;
+        }
+        if (_inputY > 0)
+        {
+            tmpState = 1;
+        }
+        else if (_inputY < 0)
+        {
+            tmpState = 3;
+        }
+        if (_inputX == 0 && _inputY == 0)
+        {
+            tmpState = 0;
+        }
+        if (state != tmpState) {
+            state = tmpState;
+            switch (state)
+            {
+                case 1:
+                    animator.SetTrigger("top");
+                    break;
+                case 2:
+                    animator.SetTrigger("right");
+                    break;
+                case 3:
+                    animator.SetTrigger("down");
+                    break;
+                case 4:
+                    animator.SetTrigger("left");
+                    break;
+                default:
+                    animator.SetTrigger("idle");
+                    break;
+
+            }
+        }
     }
 }
