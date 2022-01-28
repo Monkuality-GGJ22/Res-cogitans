@@ -20544,7 +20544,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 817980325620119306, guid: 32301e7ac340c98439b116ef51be02dc, type: 3}
       propertyPath: minLightIntensity
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 817980325620119306, guid: 32301e7ac340c98439b116ef51be02dc, type: 3}
       propertyPath: intensityReductionFactor

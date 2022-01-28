@@ -19,7 +19,7 @@ public class LightCilinder : RemoteTrigger
     private bool remoteState3;
     private Animator animator;
 
-
+    [SerializeField] private float cilinderLightIntensity;
     [SerializeField] private float lightThreshold1;
     [SerializeField] private float lightThreshold2;
     [SerializeField] private float lightThreshold3;
@@ -61,17 +61,17 @@ public class LightCilinder : RemoteTrigger
             //The light intensity of the cylinder depends on the intensity of the soul (for now it uses the same values as the thresholds)
             if(other.gameObject.GetComponent<Light>().intensity <= lightThreshold1)
             {
-                transform.gameObject.GetComponent<Light>().intensity = lightThreshold1;
+                transform.gameObject.GetComponent<Light>().intensity = cilinderLightIntensity;
                 chargeLevel = 1;
             }
             else if (other.gameObject.GetComponent<Light>().intensity > lightThreshold1 && other.gameObject.GetComponent<Light>().intensity <= lightThreshold2)
             {
-                transform.gameObject.GetComponent<Light>().intensity = lightThreshold2;
+                transform.gameObject.GetComponent<Light>().intensity = cilinderLightIntensity;
                 chargeLevel = 2;
             } 
             else
             {
-                transform.gameObject.GetComponent<Light>().intensity = lightThreshold3;
+                transform.gameObject.GetComponent<Light>().intensity = cilinderLightIntensity;
                 chargeLevel = 3;
             }
             TryRemoteAction(true);
