@@ -72,8 +72,10 @@ public class SearchAndDestroy : RemoteActivation
 
         startPosition = transform.position;
 
-        if (startDeactivated)
-            this.Deactivate();
+
+        if(!immaClone)
+            if (startDeactivated)
+                this.Deactivate();
     }
 
     void Update()
