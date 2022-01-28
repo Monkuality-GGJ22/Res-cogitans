@@ -48,7 +48,8 @@ public class SearchAndDestroy : RemoteActivation
     private Rigidbody rbody;
 
     [SerializeField] private AudioClip footSteps;
-    [SerializeField] private AudioClip hit;
+    [SerializeField] private AudioClip hitEnemy;
+    [SerializeField] private AudioClip hitPlayer;
     [SerializeField] private AudioClip death;
     private AudioSource audioSource;
 
@@ -166,7 +167,7 @@ public class SearchAndDestroy : RemoteActivation
                     collision.gameObject.GetComponent<LifeBehaviour>().DamagePlayer();
                     scriptMagico.imPushingyou = direction * enemyForce;
                     scriptMagico.hitted = true;
-                    audioSource.clip = hit;
+                    audioSource.clip = hitPlayer;
                     audioSource.Play();
                 }
             }
@@ -183,7 +184,7 @@ public class SearchAndDestroy : RemoteActivation
             currentStunTime = stunTime;
             whereImGoing = transform.position - collision.transform.position;
             whereImGoing.Normalize();
-            audioSource.clip = hit;
+            audioSource.clip = hitEnemy;
             audioSource.Play();
         }
 

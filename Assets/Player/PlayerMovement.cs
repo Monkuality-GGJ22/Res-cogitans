@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float stunTime = 0.3f;
     [SerializeField] private float invicibilityTime = 0.5f;
     [SerializeField] private float blinkVelocity = 0.1f;
+    [SerializeField] private ParticleSystem particleSystem;
 
     private Animator animator;
     public Vector3 imPushingyou;
@@ -29,6 +30,11 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 prevPosition;
     private float prevPositionTimer;
     private int state;
+
+    [SerializeField] private AudioClip footSteps;
+    [SerializeField] private AudioClip death;
+    [SerializeField] private AudioClip fall;
+
 
     private AudioSource audioSource;
 
@@ -125,26 +131,53 @@ public class PlayerMovement : MonoBehaviour
                 sr.enabled = false;
             }
         }
-
+        Debug.Log(rbody.velocity);
         //Added footstep audio to the player movement
         if (rbody.velocity.x != 0 || rbody.velocity.z != 0)
         {
-            if(!audioSource.isPlaying)
+            if (!audioSource.isPlaying)
+            {
+                audioSource.clip = footSteps;
                 audioSource.Play();
-        }                
+            }
+        }
         else
             audioSource.Stop();
+
+        if (rbody.velocity.y < 0)
+        {
+            if (audioSource.clip == footSteps)
+            {
+                audioSource.Stop();
+            }
+            if (!audioSource.isPlaying)
+            {
+                audioSource.clip = fall;
+                audioSource.Play();
+            }
+
+        }
     }
 
 
     public void Respawn(Vector3? pos = null)
-    {
+    {   
         if (pos == null)
         {
             pos = prevPosition;
         }
         else
         {
+            if (audioSource.clip != death)
+            {
+                audioSource.Stop();
+            }
+            if (!audioSource.isPlaying)
+            {
+                audioSource.clip = death;
+                audioSource.Play();
+            }
+            particleSystem.Play();
             pos += Vector3.up * GetComponent<Collider>().bounds.extents.y;
             prevPosition = Vector3.zero;
         }
@@ -152,8 +185,6 @@ public class PlayerMovement : MonoBehaviour
         prevPositionTimer = 0f;
         rbody.velocity = Vector3.zero;
     }
-
-
 
     private void OnTriggerEnter(Collider other)
     {

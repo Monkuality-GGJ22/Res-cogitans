@@ -90,7 +90,8 @@ MonoBehaviour:
   enemyForce: 20
   stunTime: 1
   footSteps: {fileID: 8300000, guid: 111e1c25a9b74084fb47a7bc72303e3d, type: 3}
-  hit: {fileID: 8300000, guid: 60919d2765926ee43af4dc613de6e512, type: 3}
+  hitEnemy: {fileID: 8300000, guid: 3605886a96d011d4582035a11b67a533, type: 3}
+  hitPlayer: {fileID: 8300000, guid: 60919d2765926ee43af4dc613de6e512, type: 3}
   death: {fileID: 8300000, guid: 8cdf3eb699a7ee04b8fa4a4562b7eb64, type: 3}
   toBeKilledTime: 0
   immaClone: 0
