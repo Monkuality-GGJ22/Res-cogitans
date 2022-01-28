@@ -4953,8 +4953,8 @@ MonoBehaviour:
   stunTime: 1
   footSteps: {fileID: 8300000, guid: 111e1c25a9b74084fb47a7bc72303e3d, type: 3}
   hitEnemy: {fileID: 8300000, guid: 3605886a96d011d4582035a11b67a533, type: 3}
-  hitPlayer: {fileID: 8300000, guid: 60919d2765926ee43af4dc613de6e512, type: 3}
-  death: {fileID: 8300000, guid: 8cdf3eb699a7ee04b8fa4a4562b7eb64, type: 3}
+  hitPlayer: {fileID: 8300000, guid: a0f95c8688c3ba5409a8ec82621430b9, type: 3}
+  death: {fileID: 8300000, guid: 9c6f405637b13ec4ab6a5fe3136e3115, type: 3}
   toBeKilledTime: 0
   immaClone: 0
   hitEffect: {fileID: 1837920675661872810}
@@ -4974,7 +4974,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0.6
+  m_Pitch: 0.85
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -5017,7 +5017,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0.9
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -5297,7 +5297,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 8cdf3eb699a7ee04b8fa4a4562b7eb64, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 9c6f405637b13ec4ab6a5fe3136e3115, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

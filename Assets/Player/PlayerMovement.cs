@@ -133,7 +133,6 @@ public class PlayerMovement : MonoBehaviour
                 sr.enabled = false;
             }
         }
-        Debug.Log(rbody.velocity);
         //Added footstep audio to the player movement
         if (rbody.velocity.x != 0 || rbody.velocity.z != 0)
         {
@@ -146,7 +145,7 @@ public class PlayerMovement : MonoBehaviour
         else if(audioSource.clip ==footSteps)
             audioSource.Stop();
 
-        if (rbody.velocity.y < 0)
+        if (rbody.position.y < 0)
         {
             if (audioSource.clip == footSteps)
             {

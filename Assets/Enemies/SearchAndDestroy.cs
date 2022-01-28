@@ -50,7 +50,6 @@ public class SearchAndDestroy : RemoteActivation
     [SerializeField] private AudioClip footSteps;
     [SerializeField] private AudioClip hitEnemy;
     [SerializeField] private AudioClip hitPlayer;
-    [SerializeField] private AudioClip death;
     private AudioSource audioSource;
 
     private float killingTime;

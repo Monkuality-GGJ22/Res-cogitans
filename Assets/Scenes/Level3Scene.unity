@@ -269,7 +269,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 684265639440877933, guid: 402a0ff6053b17f44980ceeb880d7aa4, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2785394926906755491, guid: 402a0ff6053b17f44980ceeb880d7aa4, type: 3}
       propertyPath: m_Size.x
@@ -19709,11 +19709,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7822356437643161102, guid: 8088ed9977e9b466ca04e09f0093c8d4, type: 3}
       propertyPath: spawnTime
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7822356437643161102, guid: 8088ed9977e9b466ca04e09f0093c8d4, type: 3}
       propertyPath: startDeactivated
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8088ed9977e9b466ca04e09f0093c8d4, type: 3}
