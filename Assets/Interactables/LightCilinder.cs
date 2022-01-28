@@ -24,7 +24,9 @@ public class LightCilinder : RemoteTrigger
     [SerializeField] private float lightThreshold2;
     [SerializeField] private float lightThreshold3;
 
-    
+    private AudioSource audioSource;
+
+
 
     void Start()
     {
@@ -34,6 +36,8 @@ public class LightCilinder : RemoteTrigger
         remoteState3 = false;
         animator = GetComponentInChildren<Animator>();
         animator.SetTrigger("Off");
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -92,6 +96,13 @@ public class LightCilinder : RemoteTrigger
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.GetComponent<SoulIntensity>())
+            audioSource.Play();
+        
+    }
+
     private void TryRemoteAction(bool activate)
     {
         if (activate)
@@ -146,6 +157,7 @@ public class LightCilinder : RemoteTrigger
                     animator.SetTrigger("Off");
                     break;
             }
+
         }
         else
         {
