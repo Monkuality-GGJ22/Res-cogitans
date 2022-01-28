@@ -43,6 +43,8 @@ public class SearchAndDestroy : RemoteActivation
     float currentStunTime = 0f;
     Vector3 whereImGoing = Vector3.zero;
     private bool mannaggiaAMePotevoAndareAZappare = false;
+    private Animator animator;
+    private int state = 0;
 
     private float killingTime;
     public float toBeKilledTime;
@@ -62,6 +64,7 @@ public class SearchAndDestroy : RemoteActivation
         lightBlade = transform.GetChild(0).gameObject;
         lightBlade.GetComponent<Light>().intensity = lightIntesity;
         player = GameObject.FindGameObjectWithTag("PlayerSearch").transform.Find("Body").gameObject;
+        animator = GetComponentInChildren<Animator>();
 
         if (player == null)
             gameObject.SetActive(false);
@@ -86,7 +89,8 @@ public class SearchAndDestroy : RemoteActivation
         Vector3 turnAxis = Vector3.Cross(transform.forward, direction);
 
         transform.RotateAround(transform.position, turnAxis, Time.deltaTime * turnRate * angleToTarget);
-
+        animateMovement(direction);
+        Debug.Log(direction);
         if (killingTime > 0) {
             isKillable = false;
             lightBlade.GetComponent<Light>().color = Color.red;
@@ -112,6 +116,8 @@ public class SearchAndDestroy : RemoteActivation
         direction.Normalize();
 
     }
+
+    
 
     private void FixedUpdate()
     {
@@ -225,5 +231,55 @@ public class SearchAndDestroy : RemoteActivation
         dead = false;
         transform.position = startPosition;
         gameObject.SetActive(false);
+    }
+    private void animateMovement(Vector3 direction)
+    {
+
+        //0 Idle, 1 top, 2 Right, 3 Down, 4 Left
+        int tmpState = 0;
+
+        if (direction.x > 0)
+        {
+            tmpState = 2;
+        }
+        else if (direction.x < 0)
+        {
+            tmpState = 4;
+        }
+        if (direction.y> 0)
+        {
+            tmpState = 1;
+        }
+        else if (direction.y < 0)
+        {
+            tmpState = 3;
+        }
+        if (direction.x == 0 && direction.y == 0)
+        {
+            tmpState = 0;
+        }
+        if (state != tmpState)
+        {
+            state = tmpState;
+            switch (state)
+            {
+                case 1:
+                    animator.SetTrigger("top");
+                    break;
+                case 2:
+                    animator.SetTrigger("right");
+                    break;
+                case 3:
+                    animator.SetTrigger("down");
+                    break;
+                case 4:
+                    animator.SetTrigger("left");
+                    break;
+                default:
+                    animator.SetTrigger("idle");
+                    break;
+
+            }
+        }
     }
 }

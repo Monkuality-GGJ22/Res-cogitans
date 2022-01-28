@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Animator animator;
     public Vector3 imPushingyou;
-    private MeshRenderer mr;
+    private SpriteRenderer sr;
     private float blinkTimer = 0f;
     private float invincibilityTimer = 0f;
     private float hittedTimer = -10f;
@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        mr = GetComponent<MeshRenderer>();
+        sr = GetComponentInChildren<SpriteRenderer>();
         rbody = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>();
         state = 0;
@@ -47,7 +47,6 @@ public class PlayerMovement : MonoBehaviour
     {
         inputX = Input.GetAxis("Horizontal");
         inputY = Input.GetAxis("Vertical");
-        Debug.Log($"X{inputX},Y{inputY}");
         animateMovement(inputX, inputY);
 
         prevPositionTimer += Time.deltaTime;
@@ -80,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
                 invincibilityTimer -= Time.fixedDeltaTime;
                 if (invincibilityTimer <= 0)
                 {
-                    mr.enabled = true;
+                    sr.enabled = true;
                     invincible = false;
                 }
                 else
@@ -89,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
                     if(blinkTimer <= 0)
                     {
                         blinkTimer = blinkVelocity;
-                        mr.enabled = !mr.enabled;
+                        sr.enabled = !sr.enabled;
                     }
                 }
 
@@ -106,7 +105,7 @@ public class PlayerMovement : MonoBehaviour
             if (blinkTimer <= 0)
             {
                 blinkTimer = blinkVelocity;
-                mr.enabled = !mr.enabled;
+                sr.enabled = !sr.enabled;
             }
 
             if (imPushingyou != Vector3.zero)
@@ -123,7 +122,7 @@ public class PlayerMovement : MonoBehaviour
                 invincible = true;
                 invincibilityTimer = invicibilityTime;
                 blinkTimer = blinkVelocity;
-                mr.enabled = false;
+                sr.enabled = false;
             }
         }
 
