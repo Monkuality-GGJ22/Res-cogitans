@@ -27,12 +27,16 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 prevPosition;
     private float prevPositionTimer;
 
+    private AudioSource audioSource;
+
     private void Start()
     {
         mr = GetComponent<MeshRenderer>();
         rbody = GetComponent<Rigidbody>();
         prevPosition = Vector3.zero;
         prevPositionTimer = 0f;
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -52,9 +56,6 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void FixedUpdate()
-
-        //non so cosa sto facendo, non toccate
-        //sto soffrendo
     {
         if (!hitted)
         {
@@ -66,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
                 v.Normalize();
 
             if (transform.position.y >= prevPosition.y)
-                rbody.velocity = v * baseSpeed;
+                rbody.velocity = v * baseSpeed;                
 
             if (invincible)
             {
@@ -119,6 +120,15 @@ public class PlayerMovement : MonoBehaviour
                 mr.enabled = false;
             }
         }
+
+        //Added footstep audio to the player movement
+        if (rbody.velocity.x != 0 || rbody.velocity.z != 0)
+        {
+            if(!audioSource.isPlaying)
+                audioSource.Play();
+        }                
+        else
+            audioSource.Stop();
     }
 
 
