@@ -15,13 +15,14 @@ public class EnemySpawner : RemoteActivation
     private int maxEnemiesInside = 4;
     private int enemiesNumberOnScreen = 0;
     private float currentTime;
-    [SerializeField]
-    private bool canBeReactivated = false;
+    [SerializeField] private bool startDeactivated = true;
 
 
     private void Start()
     {
         currentTime = spawnTime;
+        if (startDeactivated)
+            gameObject.SetActive(false);
     }
 
     void Update()
@@ -48,13 +49,12 @@ public class EnemySpawner : RemoteActivation
 
     public override void Activate()
     {
-        gameObject.SetActive(false);
+        gameObject.SetActive(true);
     }
 
     public override void Deactivate()
     {
-        if(canBeReactivated)
-            gameObject.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     public override void Respawn()
@@ -66,5 +66,6 @@ public class EnemySpawner : RemoteActivation
         enemies.Clear();
         enemiesNumberOnScreen = 0;
         currentTime = spawnTime;
+        gameObject.SetActive(false);
     }
 }

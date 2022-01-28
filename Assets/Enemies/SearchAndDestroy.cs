@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SearchAndDestroy : MonoBehaviour
+public class SearchAndDestroy : RemoteActivation
 {
 
     private GameObject lightBlade;
@@ -51,6 +51,10 @@ public class SearchAndDestroy : MonoBehaviour
 
     [SerializeField] NeuronComponent neuroneDaAttivare;
 
+    [SerializeField] private bool startDeactivated = true;
+    private bool dead = false;
+    Vector3 startPosition;
+
     void Start()
     {   speed += Random.Range(-30f, +30f);
         speedInLight = speed / speedInLightDivider;
@@ -65,6 +69,11 @@ public class SearchAndDestroy : MonoBehaviour
         terminatorTime = terminatorTime + Random.Range(-0.5f, +0.5f);
         killingTime = terminatorTime;
         toBeKilledTime = parryTime;
+
+        startPosition = transform.position;
+
+        if (startDeactivated)
+            this.Deactivate();
     }
 
     void Update()
@@ -194,6 +203,24 @@ public class SearchAndDestroy : MonoBehaviour
             }
         }
 
-        Destroy(gameObject);
+        dead = true;
+        gameObject.SetActive(false);
+    }
+
+    public override void Activate()
+    {
+        gameObject.SetActive(true);
+    }
+
+    public override void Deactivate()
+    {
+        gameObject.SetActive(false);
+    }
+
+    public override void Respawn()
+    {
+        dead = false;
+        transform.position = startPosition;
+        gameObject.SetActive(false);
     }
 }
