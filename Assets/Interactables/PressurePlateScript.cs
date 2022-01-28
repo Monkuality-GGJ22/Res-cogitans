@@ -13,16 +13,20 @@ public class PressurePlateScript : RemoteTrigger
 
     private SpriteRenderer spriteRenderer;
 
-    // Start is called before the first frame update
+    [SerializeField] private AudioClip pressAudioClip;
+    [SerializeField] private AudioClip releaseAudioClip;
+    private AudioSource audioSource;
+
     public void Start()
     {
         timer = 0f;
         remoteState = false;
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         spriteRenderer.sprite = off;
+
+        audioSource = GetComponent<AudioSource>();        
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (timer > 0f)
@@ -33,11 +37,6 @@ public class PressurePlateScript : RemoteTrigger
                 TryRemoteAction(false);
             }
         }
-    }
-
-    private void OnCollisionStay(Collision collision)
-    {
-        
     }
 
     private void OnTriggerStay(Collider other)
@@ -61,6 +60,10 @@ public class PressurePlateScript : RemoteTrigger
                 activationObject.Activate();
                 remoteState = true;
                 spriteRenderer.sprite = on;
+
+                //Sound effect for pressing
+                audioSource.clip = pressAudioClip;
+                audioSource.Play();
             }
         }
         else
@@ -70,6 +73,10 @@ public class PressurePlateScript : RemoteTrigger
                 activationObject.Deactivate();
                 remoteState = false;
                 spriteRenderer.sprite = off;
+
+                //Sound effect for releasing
+                audioSource.clip = releaseAudioClip;
+                audioSource.Play();
             }
         }
     }

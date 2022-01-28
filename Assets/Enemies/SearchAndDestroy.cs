@@ -43,6 +43,14 @@ public class SearchAndDestroy : RemoteActivation
     float currentStunTime = 0f;
     Vector3 whereImGoing = Vector3.zero;
     private bool mannaggiaAMePotevoAndareAZappare = false;
+    private Animator animator;
+    private int state = 0;
+    private Rigidbody rbody;
+
+    [SerializeField] private AudioClip footSteps;
+    [SerializeField] private AudioClip hit;
+    [SerializeField] private AudioClip death;
+    private AudioSource audioSource;
 
     private float killingTime;
     public float toBeKilledTime;
@@ -62,6 +70,9 @@ public class SearchAndDestroy : RemoteActivation
         lightBlade = transform.GetChild(0).gameObject;
         lightBlade.GetComponent<Light>().intensity = lightIntesity;
         player = GameObject.FindGameObjectWithTag("PlayerSearch").transform.Find("Body").gameObject;
+        animator = GetComponentInChildren<Animator>();
+        audioSource = GetComponent<AudioSource>();
+        rbody = GetComponent<Rigidbody>();
 
         if (player == null)
             gameObject.SetActive(false);
@@ -86,7 +97,7 @@ public class SearchAndDestroy : RemoteActivation
         Vector3 turnAxis = Vector3.Cross(transform.forward, direction);
 
         transform.RotateAround(transform.position, turnAxis, Time.deltaTime * turnRate * angleToTarget);
-
+        animateMovement(direction);
         if (killingTime > 0) {
             isKillable = false;
             lightBlade.GetComponent<Light>().color = Color.red;
@@ -108,10 +119,21 @@ public class SearchAndDestroy : RemoteActivation
                 toBeKilledTime = parryTime;
             }
         }
-
+        if (rbody.velocity.x != 0 || rbody.velocity.z != 0)
+        {
+            if (!audioSource.isPlaying)
+            {
+                audioSource.clip = footSteps;
+                audioSource.Play();
+            }
+        }
+        else
+           audioSource.Stop();
         direction.Normalize();
 
     }
+
+    
 
     private void FixedUpdate()
     {
@@ -144,6 +166,8 @@ public class SearchAndDestroy : RemoteActivation
                     collision.gameObject.GetComponent<LifeBehaviour>().DamagePlayer();
                     scriptMagico.imPushingyou = direction * enemyForce;
                     scriptMagico.hitted = true;
+                    audioSource.clip = hit;
+                    audioSource.Play();
                 }
             }
             else
@@ -159,6 +183,8 @@ public class SearchAndDestroy : RemoteActivation
             currentStunTime = stunTime;
             whereImGoing = transform.position - collision.transform.position;
             whereImGoing.Normalize();
+            audioSource.clip = hit;
+            audioSource.Play();
         }
 
     }
@@ -187,6 +213,9 @@ public class SearchAndDestroy : RemoteActivation
 
     private void dieAndIncreaseLight()
     {
+        Transform deathGameObject = transform.Find("DeathObjectSound");
+        deathGameObject.parent = null;
+        deathGameObject.gameObject.SetActive(true);
         GameObject lightGameObject = GameObject.FindGameObjectWithTag("PlayerSearch").transform.Find("Soul").gameObject;
         Light light = lightGameObject.GetComponent<Light>();
         var num = light.intensity;
@@ -204,7 +233,6 @@ public class SearchAndDestroy : RemoteActivation
                 spawnerGameObject.GetComponent<EnemySpawner>().onEnemyKill();
             }
         }
-
         dead = true;
         gameObject.SetActive(false);
     }
@@ -225,5 +253,55 @@ public class SearchAndDestroy : RemoteActivation
         dead = false;
         transform.position = startPosition;
         gameObject.SetActive(false);
+    }
+    private void animateMovement(Vector3 direction)
+    {
+
+        //0 Idle, 1 top, 2 Right, 3 Down, 4 Left
+        int tmpState = 0;
+
+        if (direction.x > 0)
+        {
+            tmpState = 2;
+        }
+        else if (direction.x < 0)
+        {
+            tmpState = 4;
+        }
+        if (direction.y> 0)
+        {
+            tmpState = 1;
+        }
+        else if (direction.y < 0)
+        {
+            tmpState = 3;
+        }
+        if (direction.x == 0 && direction.y == 0)
+        {
+            tmpState = 0;
+        }
+        if (state != tmpState)
+        {
+            state = tmpState;
+            switch (state)
+            {
+                case 1:
+                    animator.SetTrigger("top");
+                    break;
+                case 2:
+                    animator.SetTrigger("right");
+                    break;
+                case 3:
+                    animator.SetTrigger("down");
+                    break;
+                case 4:
+                    animator.SetTrigger("left");
+                    break;
+                default:
+                    animator.SetTrigger("idle");
+                    break;
+
+            }
+        }
     }
 }

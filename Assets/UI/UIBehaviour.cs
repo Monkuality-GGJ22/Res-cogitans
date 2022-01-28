@@ -95,6 +95,11 @@ public class UIBehaviour : MonoBehaviour
             elapsedTime += Time.deltaTime;
             yield return null;
         }
+        //lerp doesn't reach exactly 0, so I set it manually to 0
+        bgColor.a = 0f;
+        textColor.a = 0f;
+        UIMessageBG.GetComponent<Image>().color = bgColor;
+        UIMessageText.GetComponent<Text>().color = textColor;
 
         displayingMessage = false;
 

@@ -13,8 +13,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float stunTime = 0.3f;
     [SerializeField] private float invicibilityTime = 0.5f;
     [SerializeField] private float blinkVelocity = 0.1f;
+
+    private Animator animator;
     public Vector3 imPushingyou;
-    private MeshRenderer mr;
+    private SpriteRenderer sr;
     private float blinkTimer = 0f;
     private float invincibilityTimer = 0f;
     private float hittedTimer = -10f;
@@ -26,16 +28,18 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rbody;
     private Vector3 prevPosition;
     private float prevPositionTimer;
+    private int state;
 
     private AudioSource audioSource;
 
     private void Start()
     {
-        mr = GetComponent<MeshRenderer>();
+        sr = GetComponentInChildren<SpriteRenderer>();
         rbody = GetComponent<Rigidbody>();
+        animator = GetComponentInChildren<Animator>();
+        state = 0;
         prevPosition = Vector3.zero;
         prevPositionTimer = 0f;
-
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -43,13 +47,14 @@ public class PlayerMovement : MonoBehaviour
     {
         inputX = Input.GetAxis("Horizontal");
         inputY = Input.GetAxis("Vertical");
+        animateMovement(inputX, inputY);
 
         prevPositionTimer += Time.deltaTime;
         if (prevPositionTimer >= positionStoreFrequency)
         {
             prevPositionTimer = 0f;
             if (transform.position.y >= prevPosition.y)
-            {
+            {   
                 prevPosition = transform.position;
             }
         }
@@ -74,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
                 invincibilityTimer -= Time.fixedDeltaTime;
                 if (invincibilityTimer <= 0)
                 {
-                    mr.enabled = true;
+                    sr.enabled = true;
                     invincible = false;
                 }
                 else
@@ -83,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
                     if(blinkTimer <= 0)
                     {
                         blinkTimer = blinkVelocity;
-                        mr.enabled = !mr.enabled;
+                        sr.enabled = !sr.enabled;
                     }
                 }
 
@@ -100,7 +105,7 @@ public class PlayerMovement : MonoBehaviour
             if (blinkTimer <= 0)
             {
                 blinkTimer = blinkVelocity;
-                mr.enabled = !mr.enabled;
+                sr.enabled = !sr.enabled;
             }
 
             if (imPushingyou != Vector3.zero)
@@ -117,7 +122,7 @@ public class PlayerMovement : MonoBehaviour
                 invincible = true;
                 invincibilityTimer = invicibilityTime;
                 blinkTimer = blinkVelocity;
-                mr.enabled = false;
+                sr.enabled = false;
             }
         }
 
@@ -170,5 +175,54 @@ public class PlayerMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         prevPosition = transform.position;
+    }
+
+    private void animateMovement(float _inputX,float _inputY) {
+
+        //0 Idle, 1 top, 2 Right, 3 Down, 4 Left
+        int tmpState = 0;
+
+        if (_inputX > 0)
+        {
+            tmpState = 2;       
+        }
+        else if (_inputX < 0)
+        {
+            tmpState = 4;
+        }
+        if (_inputY > 0)
+        {
+            tmpState = 1;
+        }
+        else if (_inputY < 0)
+        {
+            tmpState = 3;
+        }
+        if (_inputX == 0 && _inputY == 0)
+        {
+            tmpState = 0;
+        }
+        if (state != tmpState) {
+            state = tmpState;
+            switch (state)
+            {
+                case 1:
+                    animator.SetTrigger("top");
+                    break;
+                case 2:
+                    animator.SetTrigger("right");
+                    break;
+                case 3:
+                    animator.SetTrigger("down");
+                    break;
+                case 4:
+                    animator.SetTrigger("left");
+                    break;
+                default:
+                    animator.SetTrigger("idle");
+                    break;
+
+            }
+        }
     }
 }

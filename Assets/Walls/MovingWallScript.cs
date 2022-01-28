@@ -12,13 +12,18 @@ public class MovingWallScript : RemoteActivation
     private float animationTimer;
     private float endTime;
     private bool direction;
-    
+
+    private AudioSource audioSource;
 
     public override void Activate()
     {
         if (animationTimer < 0f)
             animationTimer = 0f;
         direction = true;
+        //Plays the audio track in the right way
+        audioSource.pitch = 1;
+        audioSource.time = 0f;
+        audioSource.Play();
     }
 
     public override void Deactivate()
@@ -27,6 +32,10 @@ public class MovingWallScript : RemoteActivation
         {
             if (animationTimer < 0f) animationTimer = endTime;
             direction = false;
+            //Plays the audio track in reverse
+            audioSource.pitch = -1;
+            audioSource.time = audioSource.clip.length - 0.001f;
+            audioSource.Play();
         }
     }
 
@@ -42,6 +51,8 @@ public class MovingWallScript : RemoteActivation
         animationTimer = -1f;
         endTime = curve[curve.length - 1].time;
         direction = true;
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()

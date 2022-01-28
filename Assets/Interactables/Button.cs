@@ -9,6 +9,10 @@ public class Button : RemoteTrigger
     private bool inRange, remoteState;
     private SpriteRenderer spriteRenderer;
 
+    [SerializeField] private AudioClip pressAudioClip;
+    [SerializeField] private AudioClip releaseAudioClip;
+    private AudioSource audioSource;
+
     // Start is called before the first frame update
     public void Start()
     {
@@ -16,6 +20,8 @@ public class Button : RemoteTrigger
         remoteState = false;
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         spriteRenderer.sprite = off;
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -28,11 +34,19 @@ public class Button : RemoteTrigger
             {
                 activationObject.Activate();
                 spriteRenderer.sprite = on;
+
+                //Sound effect for pressing
+                audioSource.clip = pressAudioClip;
+                audioSource.Play();
             }
             else
             {
                 activationObject.Deactivate();
                 spriteRenderer.sprite = off;
+
+                //Sound effect for releasing
+                audioSource.clip = releaseAudioClip;
+                audioSource.Play();
             }
         }
 
