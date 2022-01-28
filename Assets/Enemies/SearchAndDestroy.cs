@@ -209,7 +209,8 @@ public class SearchAndDestroy : RemoteActivation
 
     public override void Activate()
     {
-        gameObject.SetActive(true);
+        if(!dead)
+            gameObject.SetActive(true);
     }
 
     public override void Deactivate()
