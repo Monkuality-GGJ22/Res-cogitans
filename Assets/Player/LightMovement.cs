@@ -33,7 +33,7 @@ public class LightMovement : MonoBehaviour
     private LayerMask mask;
     private RaycastHit hit;
     private Ray ray;
-    private Vector3 previousPosition, newPosition;
+    private Vector3 previousPosition, newPosition, olderPosition;
     private Rigidbody rbody;
     private SoulIntensity soulIntensity;
     private bool disabledMovement;
@@ -67,6 +67,8 @@ public class LightMovement : MonoBehaviour
     void Update()
     {
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        olderPosition = previousPosition;
 
         previousPosition = transform.position;
 
@@ -111,8 +113,8 @@ public class LightMovement : MonoBehaviour
             newPosition = center - dir;
         }
 
-        if (newPosition != null && newPosition!= previousPosition) {
-            soulIntensity.MovingFactor = Vector3.Distance(newPosition, previousPosition); 
+        if (newPosition != null && olderPosition!= previousPosition) {
+            soulIntensity.MovingFactor = Vector3.Distance(olderPosition, previousPosition);
         }
         else
         {

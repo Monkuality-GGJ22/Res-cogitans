@@ -77,8 +77,10 @@ public class PlayerMovement : MonoBehaviour
             if (v.sqrMagnitude > 1)
                 v.Normalize();
 
-            if (transform.position.y >= prevPosition.y)
-                rbody.velocity = v * baseSpeed;                
+            Vector3 temp = rbody.velocity;
+            Vector3 t2 = v * baseSpeed;
+            t2.y = temp.y;
+            rbody.velocity = t2;
 
             if (invincible)
             {
