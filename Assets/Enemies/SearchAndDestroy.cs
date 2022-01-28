@@ -45,6 +45,12 @@ public class SearchAndDestroy : RemoteActivation
     private bool mannaggiaAMePotevoAndareAZappare = false;
     private Animator animator;
     private int state = 0;
+    private Rigidbody rbody;
+
+    [SerializeField] private AudioClip footSteps;
+    [SerializeField] private AudioClip hit;
+    [SerializeField] private AudioClip death;
+    private AudioSource audioSource;
 
     private float killingTime;
     public float toBeKilledTime;
@@ -65,6 +71,8 @@ public class SearchAndDestroy : RemoteActivation
         lightBlade.GetComponent<Light>().intensity = lightIntesity;
         player = GameObject.FindGameObjectWithTag("PlayerSearch").transform.Find("Body").gameObject;
         animator = GetComponentInChildren<Animator>();
+        audioSource = GetComponent<AudioSource>();
+        rbody = GetComponent<Rigidbody>();
 
         if (player == null)
             gameObject.SetActive(false);
@@ -111,7 +119,16 @@ public class SearchAndDestroy : RemoteActivation
                 toBeKilledTime = parryTime;
             }
         }
-
+        if (rbody.velocity.x != 0 || rbody.velocity.z != 0)
+        {
+            if (!audioSource.isPlaying)
+            {
+                audioSource.clip = footSteps;
+                audioSource.Play();
+            }
+        }
+        else
+           audioSource.Stop();
         direction.Normalize();
 
     }
@@ -149,6 +166,8 @@ public class SearchAndDestroy : RemoteActivation
                     collision.gameObject.GetComponent<LifeBehaviour>().DamagePlayer();
                     scriptMagico.imPushingyou = direction * enemyForce;
                     scriptMagico.hitted = true;
+                    audioSource.clip = hit;
+                    audioSource.Play();
                 }
             }
             else
@@ -164,6 +183,8 @@ public class SearchAndDestroy : RemoteActivation
             currentStunTime = stunTime;
             whereImGoing = transform.position - collision.transform.position;
             whereImGoing.Normalize();
+            audioSource.clip = hit;
+            audioSource.Play();
         }
 
     }
@@ -192,6 +213,9 @@ public class SearchAndDestroy : RemoteActivation
 
     private void dieAndIncreaseLight()
     {
+        Transform deathGameObject = transform.Find("DeathObjectSound");
+        deathGameObject.parent = null;
+        deathGameObject.gameObject.SetActive(true);
         GameObject lightGameObject = GameObject.FindGameObjectWithTag("PlayerSearch").transform.Find("Soul").gameObject;
         Light light = lightGameObject.GetComponent<Light>();
         var num = light.intensity;
@@ -209,7 +233,6 @@ public class SearchAndDestroy : RemoteActivation
                 spawnerGameObject.GetComponent<EnemySpawner>().onEnemyKill();
             }
         }
-
         dead = true;
         gameObject.SetActive(false);
     }

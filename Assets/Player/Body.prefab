@@ -82,10 +82,6 @@ MonoBehaviour:
   stunTime: 0.3
   invicibilityTime: 0.8
   blinkVelocity: 0.1
-  idle: {fileID: 7400000, guid: 608054facc531784bb0b27521e996bf4, type: 2}
-  topMovement: {fileID: 7400000, guid: 878c1819ddbe888419b3cf523c07d7fc, type: 2}
-  downMovement: {fileID: 7400000, guid: d671e0616022d46448da64f145668390, type: 2}
-  rightMovement: {fileID: 7400000, guid: b9f21992f9394874397697d1ba59e5fe, type: 2}
   imPushingyou: {x: 0, y: 0, z: 0}
   hitted: 0
   invincible: 0
@@ -96,7 +92,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4533151967645606088}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 111e1c25a9b74084fb47a7bc72303e3d, type: 3}

@@ -332,6 +332,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 684265639440877933, guid: 402a0ff6053b17f44980ceeb880d7aa4, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2785394926906755491, guid: 402a0ff6053b17f44980ceeb880d7aa4, type: 3}
       propertyPath: m_Size.x
       value: 31
@@ -19560,6 +19564,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1651146547156343123, guid: 32301e7ac340c98439b116ef51be02dc, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2281366167617810710, guid: 32301e7ac340c98439b116ef51be02dc, type: 3}
       propertyPath: yDistanceFromPlayer
       value: 10
