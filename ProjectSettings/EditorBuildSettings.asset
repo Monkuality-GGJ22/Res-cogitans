@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TestScene_Ricci.unity
     guid: 0f4b11cea638fc04987030e70f995db9
+  - enabled: 1
+    path: Assets/Scenes/LevelBrawl.unity
+    guid: bf7698ca5ca118a448f5f756acc79c65
   m_configObjects: {}

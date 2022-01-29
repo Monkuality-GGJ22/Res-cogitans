@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySpawner : RemoteActivation
+public class EnemySpawnerBrawl : RemoteActivation
 {
 
     [SerializeField]
@@ -13,10 +13,11 @@ public class EnemySpawner : RemoteActivation
     private List<GameObject> enemies;
     [SerializeField]
     private int maxEnemiesInside = 4;
-    public int enemiesNumberOnScreen = 0;
+    private int enemiesNumberOnScreen = 0;
     private float currentTime;
     [SerializeField] private bool startDeactivated = true;
 
+    public GameObject controller;
 
     private void Start()
     {

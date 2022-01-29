@@ -7,6 +7,7 @@ public class LifeBehaviour : MonoBehaviour
     [SerializeField] private RespawnManager respawnManager;
     public int maxHealth = 3;
     [SerializeField] private int currentHealth;
+    public bool deadOnce;
     public int CurrentHealth
     {
         set
@@ -19,6 +20,7 @@ public class LifeBehaviour : MonoBehaviour
     void Start()
     {
         CurrentHealth = maxHealth;
+        deadOnce = false;
     }
 
     public void DamagePlayer()
@@ -27,6 +29,7 @@ public class LifeBehaviour : MonoBehaviour
         if(CurrentHealth <= 0)
         {
             respawnManager.RestartCheckpoint();
+            deadOnce = true;
         }
     }
 
