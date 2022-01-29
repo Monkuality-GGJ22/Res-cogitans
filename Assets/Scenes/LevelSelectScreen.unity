@@ -1384,7 +1384,7 @@ PrefabInstance:
       objectReference: {fileID: 42662063}
     - target: {fileID: 22961769370384644, guid: 4855ca753eb1932449a4f76f32b48720, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Level1Clicked
+      value: LevelBrawlClicked
       objectReference: {fileID: 0}
     - target: {fileID: 22961769370384644, guid: 4855ca753eb1932449a4f76f32b48720, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName

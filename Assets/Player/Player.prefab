@@ -62,10 +62,6 @@ PrefabInstance:
       value: 225
       objectReference: {fileID: 0}
     - target: {fileID: 4011575638595284734, guid: 16bd18607247d5b4ab540e360f44c59b, type: 3}
-      propertyPath: m_Volume
-      value: 0.06
-      objectReference: {fileID: 0}
-    - target: {fileID: 4011575638595284734, guid: 16bd18607247d5b4ab540e360f44c59b, type: 3}
       propertyPath: reverbZoneMixCustomCurve.m_Curve.Array.data[0].value
       value: 0.71
       objectReference: {fileID: 0}
@@ -163,6 +159,7 @@ MonoBehaviour:
   respawnManager: {fileID: 3051804160885989054}
   maxHealth: 3
   currentHealth: 0
+  deadOnce: 0
 --- !u!1001 &2888051683012555595
 PrefabInstance:
   m_ObjectHideFlags: 0
