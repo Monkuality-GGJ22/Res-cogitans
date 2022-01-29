@@ -19441,15 +19441,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5082612530458471397, guid: e086ad43e23201b4fb42949580939502, type: 3}
       propertyPath: lightThreshold1
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5082612530458471397, guid: e086ad43e23201b4fb42949580939502, type: 3}
       propertyPath: lightThreshold2
-      value: 10
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5082612530458471397, guid: e086ad43e23201b4fb42949580939502, type: 3}
       propertyPath: lightThreshold3
-      value: 15
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5082612530458471397, guid: e086ad43e23201b4fb42949580939502, type: 3}
       propertyPath: activationObject
@@ -19728,8 +19728,12 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7822356437643161102, guid: 8088ed9977e9b466ca04e09f0093c8d4, type: 3}
-      propertyPath: startDeactivated
+      propertyPath: maxEnemiesInside
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7822356437643161102, guid: 8088ed9977e9b466ca04e09f0093c8d4, type: 3}
+      propertyPath: startDeactivated
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8088ed9977e9b466ca04e09f0093c8d4, type: 3}
@@ -20372,13 +20376,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 855305366}
     - target: {fileID: 58310185350594164, guid: 75278c0156c4af147976baa085c2040e, type: 3}
+      propertyPath: neurons.Array.data[3]
+      value: 
+      objectReference: {fileID: 855305366}
+    - target: {fileID: 58310185350594164, guid: 75278c0156c4af147976baa085c2040e, type: 3}
       propertyPath: resettableObjects.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 58310185350594164, guid: 75278c0156c4af147976baa085c2040e, type: 3}
       propertyPath: resettableObjects.Array.data[0]
       value: 
       objectReference: {fileID: 537625500}
+    - target: {fileID: 58310185350594164, guid: 75278c0156c4af147976baa085c2040e, type: 3}
+      propertyPath: resettableObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 570530544}
+    - target: {fileID: 58310185350594164, guid: 75278c0156c4af147976baa085c2040e, type: 3}
+      propertyPath: resettableObjects.Array.data[2]
+      value: 
+      objectReference: {fileID: 293513315}
     - target: {fileID: 1154569178764447454, guid: 75278c0156c4af147976baa085c2040e, type: 3}
       propertyPath: m_Name
       value: Checkpoint
