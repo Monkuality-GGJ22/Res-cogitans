@@ -25,15 +25,33 @@ public class LevelSelectBehaviour : MonoBehaviour
 
     public void Level2Clicked()
     {
-        SceneManager.LoadScene("TestScene_Ricci", LoadSceneMode.Single);
+        SceneManager.LoadScene("TutorialLevel", LoadSceneMode.Single);
+    }
+
+    public void Level3Clicked()
+    {
+        SceneManager.LoadScene("TutorialLevel", LoadSceneMode.Single);
+    }
+
+    public void Level4Clicked()
+    {
+        SceneManager.LoadScene("TutorialLevel", LoadSceneMode.Single);
+    }
+
+    public void Level5Clicked()
+    {
+        SceneManager.LoadScene("TutorialLevel", LoadSceneMode.Single);
+    }
+
+    public void Level6Clicked()
+    {
+        SceneManager.LoadScene("TutorialLevel", LoadSceneMode.Single);
     }
 
     public void LevelBrawlClicked()
     {
         SceneManager.LoadScene("LevelBrawl", LoadSceneMode.Single);
     }
-
-
 
     public void MainMenuClicked()
     {
