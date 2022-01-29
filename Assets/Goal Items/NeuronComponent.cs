@@ -11,8 +11,9 @@ public class NeuronComponent : RemoteActivation
     public override void Activate()
     {
         light.enabled = true;
+        if (!manager.GetActiveCheckpointClearStatus())
+            animator.SetTrigger("Activate");
         manager.NeuronActivated();
-        animator.SetTrigger("Activate");
     }
 
     public override void Deactivate()
@@ -21,7 +22,8 @@ public class NeuronComponent : RemoteActivation
         {
             Disable();
             manager.NeuronDeactivated();
-            animator.SetTrigger("Deactivate");
+            if (!manager.GetActiveCheckpointClearStatus())
+                animator.SetTrigger("Deactivate");
         }
     }
 
