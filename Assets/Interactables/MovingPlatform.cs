@@ -17,6 +17,7 @@ public class MovingPlatform : RemoteActivation
     private void Start()
     {
         startingPosition = transform.position;
+        active = startActive;
     }
 
     private void Update()
