@@ -5,6 +5,7 @@ using UnityEngine;
 public class DarkWallActivation : RemoteActivation
 {
     [SerializeField] private bool startEnabled = true;
+    [SerializeField] private bool singleUse;
 
     private Collider collider;
     private MeshRenderer renderer;
@@ -12,14 +13,19 @@ public class DarkWallActivation : RemoteActivation
     private int firstFrames;
     private bool caughtSoul;
     private GameObject lightTrap;
+    private bool alreadyActivated;
     public override void Activate()
     {
-        collider.enabled = true;
-        renderer.enabled = true;
-        caughtSoul = false;
-        collider.isTrigger = true;
-        lightTrap.SetActive(false);
-        firstFrames = 0;
+        if (!alreadyActivated || !singleUse)
+        {
+            collider.enabled = true;
+            renderer.enabled = true;
+            caughtSoul = false;
+            collider.isTrigger = true;
+            lightTrap.SetActive(false);
+            firstFrames = 0;
+            alreadyActivated = true;
+        }
     }
 
     public override void Deactivate()
@@ -33,6 +39,7 @@ public class DarkWallActivation : RemoteActivation
     public override void Respawn()
     {
         Deactivate();
+        alreadyActivated = false;
     }
 
     // Start is called before the first frame update
@@ -43,6 +50,7 @@ public class DarkWallActivation : RemoteActivation
         soul = FindObjectOfType<LightMovement>();
         lightTrap = transform.GetChild(0).gameObject;
         lightTrap.SetActive(false);
+        alreadyActivated = false;
         if (!startEnabled) Deactivate();
     }
 
