@@ -20,7 +20,7 @@ public class EnemySpawner : RemoteActivation
 
     private void Start()
     {
-        currentTime = spawnTime;
+        currentTime = 0;
         if (startDeactivated)
             gameObject.SetActive(false);
     }
