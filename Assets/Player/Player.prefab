@@ -172,8 +172,12 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: -6679287458167339967, guid: bf8d0262fbf9e0544b5cbd710e382cf1, type: 3}
+      propertyPath: intensityReductionFactor
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6679287458167339967, guid: bf8d0262fbf9e0544b5cbd710e382cf1, type: 3}
       propertyPath: intensityReductionFactorInMovement
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4016473942060231672, guid: bf8d0262fbf9e0544b5cbd710e382cf1, type: 3}
       propertyPath: m_RootOrder
