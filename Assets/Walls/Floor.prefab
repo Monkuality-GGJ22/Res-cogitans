@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4567615509220231207}
   - component: {fileID: 2116038542378276578}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,10 +93,10 @@ GameObject:
   - component: {fileID: 6782655066516229792}
   - component: {fileID: 6782655066516229793}
   - component: {fileID: 6782655066516229806}
-  - component: {fileID: 4416569988349060870}
-  m_Layer: 0
-  m_Name: FloorBrush
-  m_TagString: Floor
+  - component: {fileID: -2699147331441365712}
+  m_Layer: 9
+  m_Name: Floor
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -165,8 +165,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4416569988349060870
-BoxCollider:
+--- !u!64 &-2699147331441365712
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -175,6 +175,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
