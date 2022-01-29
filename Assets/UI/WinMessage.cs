@@ -6,9 +6,9 @@ public class WinMessage : MonoBehaviour
 {
     [SerializeField] private GameObject messageCanvas;
 
-    private void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        ShowFullscreenMessage();
     }
 
     public void ShowFullscreenMessage() => Show();
