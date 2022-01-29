@@ -220,7 +220,7 @@ public class SearchAndDestroy : RemoteActivation
 
 }
 
-    private void dieAndIncreaseLight()
+    public void dieAndIncreaseLight()
     {
         deathGameObject.parent = null;
         deathGameObject.gameObject.SetActive(true);

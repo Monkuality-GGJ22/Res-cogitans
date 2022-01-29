@@ -39,6 +39,7 @@ public class SoulIntensity : MonoBehaviour
     {
         if (timer >= 2f && mLight.intensity >= minLightIntensity)
         {
+
             float totalintensityReductionFactor = intensityReductionFactor+movingFactor *intensityReductionFactorInMovement ;
             mLight.intensity -= totalintensityReductionFactor * Time.deltaTime;
             mLight.intensity = mLight.intensity < minLightIntensity ? minLightIntensity : mLight.intensity;

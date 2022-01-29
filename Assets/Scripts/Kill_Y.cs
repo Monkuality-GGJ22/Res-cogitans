@@ -16,7 +16,15 @@ public class Kill_Y : MonoBehaviour
         {
             respawnManager.RespawnPlayer();
         }
+        else if (collision.transform.CompareTag("Enemy"))
+        {
+            SearchAndDestroy var = collision.gameObject.GetComponent<SearchAndDestroy>();
+            if (var != null) {
+                var.dieAndIncreaseLight();
+            }
+        }
         else
+
         {
             var resettable = collision.gameObject.GetComponent<Resettable>();
             if (resettable != null)
