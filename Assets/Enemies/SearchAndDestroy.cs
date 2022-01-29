@@ -239,6 +239,7 @@ public class SearchAndDestroy : RemoteActivation
             if (spawnerGameObject)
             {
                 spawnerGameObject.GetComponent<EnemySpawner>().onEnemyKill();
+                //Destroy(gameObject);
             }
         }
         dead = true;
