@@ -65,8 +65,8 @@ MonoBehaviour:
   activationObject: {fileID: 0}
   off: {fileID: 6870525545324370295, guid: e2955519b22e83a46a9e0db5cce84733, type: 3}
   on: {fileID: 1706777115408304207, guid: e2955519b22e83a46a9e0db5cce84733, type: 3}
-  pressAudioClip: {fileID: 0}
-  releaseAudioClip: {fileID: 0}
+  pressAudioClip: {fileID: 8300000, guid: 50c1c90064a8b2841964cbfdf488a863, type: 3}
+  releaseAudioClip: {fileID: 8300000, guid: 21b335f4872d8b64a8042906bb21e897, type: 3}
 --- !u!114 &3661151793230818426
 MonoBehaviour:
   m_ObjectHideFlags: 0
