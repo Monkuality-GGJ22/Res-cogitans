@@ -189,7 +189,7 @@ MonoBehaviour:
   lightHeight: 3
   maxLightSpeed: 1000
   minLightSpeed: 800
-  distanceFromBody: 7
+  distanceFromBody: 12
   drawDebugDir: 1
   distanceFromDarkCenter: 1
   startupTime: 0.2
@@ -206,6 +206,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minLightIntensity: 1
-  maxLightIntensity: 8
+  maxLightIntensity: 6
   intensityReductionFactor: 0.1
-  intensityReductionFactorInMovement: 0
+  intensityReductionFactorInMovement: 1

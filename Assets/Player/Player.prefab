@@ -171,6 +171,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 5850232690342987528}
     m_Modifications:
     - target: {fileID: -6679287458167339967, guid: bf8d0262fbf9e0544b5cbd710e382cf1, type: 3}
+      propertyPath: maxLightIntensity
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -6679287458167339967, guid: bf8d0262fbf9e0544b5cbd710e382cf1, type: 3}
       propertyPath: intensityReductionFactorInMovement
       value: 0.5
       objectReference: {fileID: 0}

@@ -44,7 +44,8 @@ public class LightDiamondBehaviour : MonoBehaviour
     {
         soulIntensityComponent = other.gameObject.GetComponent<SoulIntensity>();
         if (soulIntensityComponent != null && 
-            other.gameObject.GetComponent<Light>().intensity < other.gameObject.GetComponent<SoulIntensity>().MaxLightIntensity)
+            other.gameObject.GetComponent<Light>().intensity < other.gameObject.GetComponent<SoulIntensity>().MaxLightIntensity &&
+            diamondLightComponent.intensity > 0)
         {
             isRecharging = false;
             //Decrease diamond intensity

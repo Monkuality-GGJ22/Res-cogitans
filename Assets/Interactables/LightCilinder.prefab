@@ -170,9 +170,9 @@ MonoBehaviour:
   activationObject3: {fileID: 0}
   pressedTimer: 0
   cilinderLightIntensity: 0.5
-  lightThreshold1: 2
-  lightThreshold2: 4
-  lightThreshold3: 6
+  lightThreshold1: 1.5
+  lightThreshold2: 3
+  lightThreshold3: 5
 --- !u!108 &7044742170378731704
 Light:
   m_ObjectHideFlags: 0
