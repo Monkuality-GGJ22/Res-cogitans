@@ -11,7 +11,7 @@ public class DeathBehaviour : MonoBehaviour
     }
     IEnumerator deathRoutine() {
         yield return new WaitForSeconds(2f);
-        Destroy(this.gameObject);
+        this.gameObject.SetActive(false);
     
     }
     // Update is called once per frame

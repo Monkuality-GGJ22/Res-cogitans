@@ -261,6 +261,8 @@ public class SearchAndDestroy : RemoteActivation
         dead = false;
         transform.position = startPosition;
         gameObject.SetActive(false);
+        deathGameObject.SetParent(transform);
+        deathGameObject.position = transform.position;
     }
     private void animateMovement(Vector3 direction)
     {
