@@ -11,6 +11,7 @@ public class Button : RemoteTrigger
 
     [SerializeField] private AudioClip pressAudioClip;
     [SerializeField] private AudioClip releaseAudioClip;
+    [SerializeField] private bool stickyButton = false;
     private AudioSource audioSource;
 
     // Start is called before the first frame update
@@ -29,6 +30,7 @@ public class Button : RemoteTrigger
     {
         if (Input.GetButtonDown("Interact") && inRange)
         {
+            if (remoteState && stickyButton) return;
             remoteState = !remoteState;
             if (remoteState)
             {
@@ -54,11 +56,18 @@ public class Button : RemoteTrigger
 
     private void OnTriggerEnter(Collider other)
     {
-        inRange = true;
+        if (other.gameObject.CompareTag("Player"))
+        {
+            inRange = true;
+        }       
     }
 
     private void OnTriggerExit(Collider other)
     {
-        inRange = false;
+        if (other.gameObject.CompareTag("Player"))
+        {
+
+            inRange = false;
+        }
     }
 }
