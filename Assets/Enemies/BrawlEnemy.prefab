@@ -4873,8 +4873,8 @@ GameObject:
   - component: {fileID: 1776539035132802347}
   - component: {fileID: 1776539035132802344}
   - component: {fileID: 1776539035132802327}
+  - component: {fileID: 7928014572678955082}
   - component: {fileID: 5899253194486816768}
-  - component: {fileID: 5091443230344493999}
   m_Layer: 0
   m_Name: BrawlEnemy
   m_TagString: Enemy
@@ -4928,6 +4928,38 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 2
+--- !u!114 &7928014572678955082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1776539035132802326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcfbd751326454a7cb27821f2b7bd242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  terminatorTime: 2.5
+  parryTime: 0.7
+  parryTimeInLight: 1.2
+  lightRecharge: 1.5
+  actualSpeed: 0
+  speed: 300
+  speedInLightDivider: 1.7
+  speedInLight: 0
+  turnRate: 0
+  enemyForce: 18
+  stunTime: 1.5
+  footSteps: {fileID: 8300000, guid: 6e6fa71db4385734d87cf968be6df575, type: 3}
+  hitEnemy: {fileID: 8300000, guid: 3605886a96d011d4582035a11b67a533, type: 3}
+  hitPlayer: {fileID: 8300000, guid: a0f95c8688c3ba5409a8ec82621430b9, type: 3}
+  toBeKilledTime: 0
+  immaClone: 0
+  hitEffect: {fileID: 1837920675661872810}
+  neuroneDaAttivare: {fileID: 0}
+  startDeactivated: 1
+  deathGameObject: {fileID: 6849732893102925133}
 --- !u!82 &5899253194486816768
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5024,38 +5056,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &5091443230344493999
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1776539035132802326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8825e7bfbd167e4e8f869765d3a543d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  terminatorTime: 3
-  parryTime: 0.5
-  parryTimeInLight: 0.8
-  lightRecharge: 5
-  actualSpeed: 0
-  speed: 300
-  speedInLightDivider: 1.5
-  speedInLight: 0
-  turnRate: 10
-  enemyForce: 20
-  stunTime: 1
-  footSteps: {fileID: 0}
-  hitEnemy: {fileID: 0}
-  hitPlayer: {fileID: 0}
-  toBeKilledTime: 0
-  immaClone: 0
-  hitEffect: {fileID: 0}
-  neuroneDaAttivare: {fileID: 0}
-  startDeactivated: 1
-  deathGameObject: {fileID: 0}
 --- !u!1 &1776539035274433872
 GameObject:
   m_ObjectHideFlags: 0

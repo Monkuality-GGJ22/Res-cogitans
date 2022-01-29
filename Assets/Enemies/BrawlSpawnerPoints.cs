@@ -8,15 +8,16 @@ public class BrawlSpawnerPoints : MonoBehaviour
     private BrawlController brawlController;
     private int currentNumOfEnemiesOnField;
     private int previousNumOfEnemiesOnField;
-    // Start is called before the first frame update
+    Vector3 pos;
+
     void Start()
     {
         brawlController = brawlObject.GetComponent<BrawlController>();
         currentNumOfEnemiesOnField = 0;
         previousNumOfEnemiesOnField = 0;
-}
+        pos = transform.position;
+    }
 
-    // Update is called once per frame
     void Update()
     {
         currentNumOfEnemiesOnField = gameObject.GetComponent<EnemySpawner>().enemiesNumberOnScreen;
@@ -26,5 +27,10 @@ public class BrawlSpawnerPoints : MonoBehaviour
             brawlController.remainingTime += 2f;
         }
         previousNumOfEnemiesOnField = currentNumOfEnemiesOnField;
+
+        if(gameObject.transform.name.Equals("EnemySpawner"))
+            transform.position = pos + Vector3.back * Mathf.PingPong(Time.time * 10, 40);
+        else
+            transform.position = pos + Vector3.forward * Mathf.PingPong(Time.time * 10, 40);
     }
 }
