@@ -38,8 +38,15 @@ public class DarkWallActivation : RemoteActivation
 
     public override void Respawn()
     {
-        Deactivate();
-        alreadyActivated = false;
+        if (!startEnabled)
+        {
+            Deactivate();
+            alreadyActivated = false;
+        }
+        else
+        {
+            alreadyActivated = true;
+        }
     }
 
     // Start is called before the first frame update
@@ -50,8 +57,15 @@ public class DarkWallActivation : RemoteActivation
         soul = FindObjectOfType<LightMovement>();
         lightTrap = transform.GetChild(0).gameObject;
         lightTrap.SetActive(false);
-        alreadyActivated = false;
-        if (!startEnabled) Deactivate();
+        if (!startEnabled)
+        {
+            Deactivate();
+            alreadyActivated = false;
+        }
+        else
+        {
+            alreadyActivated = true;
+        }
     }
 
     // Update is called once per frame
