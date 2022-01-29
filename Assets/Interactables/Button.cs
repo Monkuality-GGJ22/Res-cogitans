@@ -56,11 +56,18 @@ public class Button : RemoteTrigger
 
     private void OnTriggerEnter(Collider other)
     {
-        inRange = true;
+        if (other.gameObject.CompareTag("Player"))
+        {
+            inRange = true;
+        }       
     }
 
     private void OnTriggerExit(Collider other)
     {
-        inRange = false;
+        if (other.gameObject.CompareTag("Player"))
+        {
+
+            inRange = false;
+        }
     }
 }

@@ -196,6 +196,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -6564336367329861821, guid: a4eadb67c1056d54586cfe34653a4b77, type: 3}
+      propertyPath: stickyButton
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6564336367329861821, guid: a4eadb67c1056d54586cfe34653a4b77, type: 3}
       propertyPath: activationObject
       value: 
       objectReference: {fileID: 325956385}
@@ -1547,7 +1551,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5850232690342987528, guid: 32301e7ac340c98439b116ef51be02dc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.82
+      value: 18.66
       objectReference: {fileID: 0}
     - target: {fileID: 5850232690342987528, guid: 32301e7ac340c98439b116ef51be02dc, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1555,7 +1559,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5850232690342987528, guid: 32301e7ac340c98439b116ef51be02dc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -19.68
+      value: -36.5
       objectReference: {fileID: 0}
     - target: {fileID: 5850232690342987528, guid: 32301e7ac340c98439b116ef51be02dc, type: 3}
       propertyPath: m_LocalRotation.w
