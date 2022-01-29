@@ -208,4 +208,4 @@ MonoBehaviour:
   minLightIntensity: 1
   maxLightIntensity: 6
   intensityReductionFactor: 0.1
-  intensityReductionFactorInMovement: 1
+  intensityReductionFactorInMovement: 1.3

@@ -4943,7 +4943,7 @@ MonoBehaviour:
   terminatorTime: 2.5
   parryTime: 0.5
   parryTimeInLight: 1
-  lightRecharge: 5
+  lightRecharge: 2
   actualSpeed: 0
   speed: 300
   speedInLightDivider: 1.7
@@ -4954,7 +4954,6 @@ MonoBehaviour:
   footSteps: {fileID: 8300000, guid: 111e1c25a9b74084fb47a7bc72303e3d, type: 3}
   hitEnemy: {fileID: 8300000, guid: 3605886a96d011d4582035a11b67a533, type: 3}
   hitPlayer: {fileID: 8300000, guid: a0f95c8688c3ba5409a8ec82621430b9, type: 3}
-  death: {fileID: 8300000, guid: 9c6f405637b13ec4ab6a5fe3136e3115, type: 3}
   toBeKilledTime: 0
   immaClone: 0
   hitEffect: {fileID: 1837920675661872810}
