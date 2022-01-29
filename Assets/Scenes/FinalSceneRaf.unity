@@ -1152,7 +1152,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activationObjects:
-  - {fileID: 0}
   - {fileID: 384821970}
 --- !u!1001 &1710273937
 PrefabInstance:
