@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: Wall Grayscale
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: 23076e76e1f112d439b65d2df143d6b7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cd738e4ed5e9444fb95fc66b5954def1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
