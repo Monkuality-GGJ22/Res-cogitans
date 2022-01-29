@@ -17,6 +17,7 @@ public class MovingWallScript : RemoteActivation
 
     public override void Activate()
     {
+        if (direction == true) return;
         if (animationTimer < 0f)
             animationTimer = 0f;
         direction = true;
@@ -28,7 +29,7 @@ public class MovingWallScript : RemoteActivation
 
     public override void Deactivate()
     {
-        if (allowDeactivation)
+        if (allowDeactivation && direction)
         {
             if (animationTimer < 0f) animationTimer = endTime;
             direction = false;
@@ -50,7 +51,7 @@ public class MovingWallScript : RemoteActivation
         initialPos = transform.position;
         animationTimer = -1f;
         endTime = curve[curve.length - 1].time;
-        direction = true;
+        direction = false;
 
         audioSource = GetComponent<AudioSource>();
     }

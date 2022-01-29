@@ -11,6 +11,7 @@ public class Button : RemoteTrigger
 
     [SerializeField] private AudioClip pressAudioClip;
     [SerializeField] private AudioClip releaseAudioClip;
+    [SerializeField] private bool stickyButton = false;
     private AudioSource audioSource;
 
     // Start is called before the first frame update
@@ -29,6 +30,7 @@ public class Button : RemoteTrigger
     {
         if (Input.GetButtonDown("Interact") && inRange)
         {
+            if (remoteState && stickyButton) return;
             remoteState = !remoteState;
             if (remoteState)
             {
