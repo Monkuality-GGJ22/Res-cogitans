@@ -2,11 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovingPlatform : MonoBehaviour
+public class MovingPlatform : RemoteActivation
 {
     private Vector3 startingPosition;
     [SerializeField] private Vector3 offset;
     [SerializeField] private float speed;
+    [SerializeField] private bool startActive = true;
+    private bool active;
+    private bool direction;
+    private float amount;
 
     private Transform previousParent;
 
@@ -17,8 +21,21 @@ public class MovingPlatform : MonoBehaviour
 
     private void Update()
     {
-        float pingPong = Mathf.PingPong(Time.time * speed, 1);
-        transform.position = Vector3.Lerp(startingPosition, startingPosition + offset , pingPong);
+        if (active)
+        {
+            amount += (direction ? Time.deltaTime : -Time.deltaTime) * speed;
+            if (amount < 0f)
+            {
+                amount = 0f;
+                direction = !direction;
+            }
+            else if (amount > 1f)
+            {
+                amount = 1f;
+                direction = !direction;
+            }
+            transform.position = Vector3.Lerp(startingPosition, startingPosition + offset, amount);
+        }
     }
 
     private void OnCollisionEnter(Collision other)
@@ -37,5 +54,21 @@ public class MovingPlatform : MonoBehaviour
             other.gameObject.transform.parent = previousParent;
             previousParent = null;
         }
+    }
+
+    public override void Activate()
+    {
+        active = true;
+    }
+
+    public override void Deactivate()
+    {
+        active = false;
+    }
+
+    public override void Respawn()
+    {
+        transform.position = startingPosition;
+        active = startActive;
     }
 }
