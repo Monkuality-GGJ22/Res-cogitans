@@ -71,5 +71,6 @@ public class MovingPlatform : RemoteActivation
     {
         transform.position = startingPosition;
         active = startActive;
+        amount = 0f;
     }
 }

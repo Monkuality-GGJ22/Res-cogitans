@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 0, g: 0, b: 0, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -877,7 +877,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 704816754, guid: b13df90e1deb9474a92a465efab84817, type: 3}
       propertyPath: diamondIntensity
-      value: 1.5
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 4120143212233269584, guid: b13df90e1deb9474a92a465efab84817, type: 3}
       propertyPath: m_RootOrder
@@ -941,7 +941,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7829326567550346095, guid: b13df90e1deb9474a92a465efab84817, type: 3}
       propertyPath: m_Intensity
-      value: 1.5
+      value: 2.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b13df90e1deb9474a92a465efab84817, type: 3}
@@ -18295,7 +18295,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7829326567550346095, guid: b13df90e1deb9474a92a465efab84817, type: 3}
       propertyPath: m_Intensity
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b13df90e1deb9474a92a465efab84817, type: 3}
@@ -18410,7 +18410,7 @@ PrefabInstance:
       objectReference: {fileID: 74812324}
     - target: {fileID: 58310185350594164, guid: 75278c0156c4af147976baa085c2040e, type: 3}
       propertyPath: resettableObjects.Array.size
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 58310185350594164, guid: 75278c0156c4af147976baa085c2040e, type: 3}
       propertyPath: resettableObjects.Array.data[0]
@@ -18428,6 +18428,14 @@ PrefabInstance:
       propertyPath: resettableObjects.Array.data[3]
       value: 
       objectReference: {fileID: 1405469062}
+    - target: {fileID: 58310185350594164, guid: 75278c0156c4af147976baa085c2040e, type: 3}
+      propertyPath: resettableObjects.Array.data[4]
+      value: 
+      objectReference: {fileID: 1388323659}
+    - target: {fileID: 58310185350594164, guid: 75278c0156c4af147976baa085c2040e, type: 3}
+      propertyPath: resettableObjects.Array.data[5]
+      value: 
+      objectReference: {fileID: 1553758229}
     - target: {fileID: 1154569178764447454, guid: 75278c0156c4af147976baa085c2040e, type: 3}
       propertyPath: m_Name
       value: Checkpoint
