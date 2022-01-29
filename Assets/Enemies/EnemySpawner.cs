@@ -59,7 +59,6 @@ public class EnemySpawner : RemoteActivation
 
     public override void Respawn()
     {
-        print("resoawni?");
         foreach(GameObject enemy in enemies)
         {
             Destroy(enemy);
