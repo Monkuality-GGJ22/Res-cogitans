@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/LevelSelectScreen.unity
     guid: 4db8d7b99d97a0b42bdf245a1c91cc79
   - enabled: 1
+    path: Assets/Scenes/TutorialLevel.unity
+    guid: 801b074b50ac44c3b833f60a613776ba
+  - enabled: 1
     path: Assets/Scenes/TestScene_Ricci.unity
     guid: 0f4b11cea638fc04987030e70f995db9
   - enabled: 1

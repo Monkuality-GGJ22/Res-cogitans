@@ -20,7 +20,7 @@ public class LevelSelectBehaviour : MonoBehaviour
 
     public void Level1Clicked()
     {
-        SceneManager.LoadScene("TestScene_Ricci", LoadSceneMode.Single);
+        SceneManager.LoadScene("TutorialLevel", LoadSceneMode.Single);
     }
 
     public void Level2Clicked()

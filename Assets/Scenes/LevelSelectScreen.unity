@@ -1555,7 +1555,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 22961769200966789, guid: 4855ca753eb1932449a4f76f32b48720, type: 3}
       propertyPath: m_Text
-      value: Level 1
+      value: Tutorial
       objectReference: {fileID: 0}
     - target: {fileID: 22961769370384644, guid: 4855ca753eb1932449a4f76f32b48720, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
