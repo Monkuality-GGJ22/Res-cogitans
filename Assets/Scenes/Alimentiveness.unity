@@ -1788,7 +1788,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5191362307440020769, guid: 9f2d695f1a65b554f927b2279aff02aa, type: 3}
       propertyPath: finalPosOffset.z
-      value: 5
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7380994902623368752, guid: 9f2d695f1a65b554f927b2279aff02aa, type: 3}
       propertyPath: m_Name
@@ -1800,7 +1800,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7380994902623368764, guid: 9f2d695f1a65b554f927b2279aff02aa, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.64487773
+      value: 0.7013045
       objectReference: {fileID: 0}
     - target: {fileID: 7380994902623368764, guid: 9f2d695f1a65b554f927b2279aff02aa, type: 3}
       propertyPath: m_LocalScale.z
