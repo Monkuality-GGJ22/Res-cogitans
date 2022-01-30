@@ -136,7 +136,6 @@ public class LightMovement : MonoBehaviour
         if (newPosition != null && olderPosition != previousPosition)
         {            
             soulIntensity.MovingFactor = Vector3.Distance(olderPosition, previousPosition);
-            print(soulIntensity.MovingFactor);
         }
         else
         {
