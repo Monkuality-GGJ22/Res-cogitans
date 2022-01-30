@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - Floor
   - EnemySpawner
+  - soul
   layers:
   - Default
   - TransparentFX

@@ -4943,7 +4943,7 @@ MonoBehaviour:
   terminatorTime: 2.5
   parryTime: 0.5
   parryTimeInLight: 1
-  lightRecharge: 2
+  lightRecharge: 1
   actualSpeed: 0
   speed: 300
   speedInLightDivider: 1.7
