@@ -35,13 +35,13 @@ public class SoulIntensity : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (timer >= 2f && mLight.intensity >= minLightIntensity)
         {
 
             float totalintensityReductionFactor = intensityReductionFactor+movingFactor *intensityReductionFactorInMovement ;
-            mLight.intensity -= totalintensityReductionFactor * Time.deltaTime;
+            mLight.intensity -= totalintensityReductionFactor * Time.fixedDeltaTime;
             mLight.intensity = mLight.intensity < minLightIntensity ? minLightIntensity : mLight.intensity;
 
             float lightPercent = 1 - (mLight.intensity - minLightIntensity) / (maxLightIntensity - minLightIntensity);
@@ -54,7 +54,7 @@ public class SoulIntensity : MonoBehaviour
                 lightMovement.LightSpeed = lightMovement.MaxLightSpeed;
             }
         }
-        else timer += Time.deltaTime;
+        else timer += Time.fixedDeltaTime;
     }
 
     public void RefillLight(bool fromDeath)

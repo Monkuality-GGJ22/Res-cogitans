@@ -113,13 +113,7 @@ public class LightMovement : MonoBehaviour
             newPosition = center - dir;
         }
 
-        if (newPosition != null && olderPosition!= previousPosition) {
-            soulIntensity.MovingFactor = Vector3.Distance(olderPosition, previousPosition);
-        }
-        else
-        {
-            soulIntensity.MovingFactor = 0f;
-        }
+        
     }
 
     private void FixedUpdate()
@@ -133,10 +127,29 @@ public class LightMovement : MonoBehaviour
         //{
         //    rbody.velocity = Vector3.zero;
         //}
+        //olderPosition = previousPosition;
+
         var dir = newPosition - previousPosition;
         rbody.velocity = dir * lightSpeed * Time.fixedDeltaTime;
 
         if (drawDebugDir) Debug.DrawLine(previousPosition, newPosition, Color.green, 1);
+
+        print(newPosition + "\n");
+        print(previousPosition + "\n");
+        print(olderPosition + "\n");
+
+        if (newPosition != null && olderPosition != previousPosition)
+        {
+            print("ciao");
+            
+            soulIntensity.MovingFactor = Vector3.Distance(olderPosition, previousPosition);
+            print(soulIntensity.MovingFactor);
+        }
+        else
+        {
+            soulIntensity.MovingFactor = 0f;
+        }
+
     }
 
     public void ForceSetPos()
