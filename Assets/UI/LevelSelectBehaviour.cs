@@ -25,7 +25,7 @@ public class LevelSelectBehaviour : MonoBehaviour
 
     public void Level2Clicked()
     {
-        SceneManager.LoadScene("TutorialLevel", LoadSceneMode.Single);
+        SceneManager.LoadScene("FinalSceneHard", LoadSceneMode.Single);
     }
 
     public void Level3Clicked()
@@ -36,11 +36,6 @@ public class LevelSelectBehaviour : MonoBehaviour
     public void Level4Clicked()
     {
         SceneManager.LoadScene("aaaaaaaaaaaaaaaa", LoadSceneMode.Single);
-    }
-
-    public void Level5Clicked()
-    {
-        SceneManager.LoadScene("TutorialLevel", LoadSceneMode.Single);
     }
 
     public void LevelBrawlClicked()

@@ -15,11 +15,14 @@ EditorBuildSettings:
     path: Assets/Scenes/TutorialLevel.unity
     guid: 801b074b50ac44c3b833f60a613776ba
   - enabled: 1
-    path: Assets/Scenes/aaaaaaaaaaaaaaaa.unity
-    guid: 11759a841225894458bf660e6e7d6720
+    path: Assets/Scenes/FinalSceneHard.unity
+    guid: cf80b609f71004838902e8408ac20c7b
   - enabled: 1
     path: Assets/Scenes/Alimentiveness.unity
     guid: e0c04728f66728a4fb145575208aa4a0
+  - enabled: 1
+    path: Assets/Scenes/aaaaaaaaaaaaaaaa.unity
+    guid: 11759a841225894458bf660e6e7d6720
   - enabled: 1
     path: Assets/Scenes/LevelBrawl.unity
     guid: bf7698ca5ca118a448f5f756acc79c65
