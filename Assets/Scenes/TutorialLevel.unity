@@ -140762,7 +140762,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 58310185350594164, guid: 75278c0156c4af147976baa085c2040e, type: 3}
       propertyPath: resettableObjects.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1154569178764447454, guid: 75278c0156c4af147976baa085c2040e, type: 3}
       propertyPath: m_Name
