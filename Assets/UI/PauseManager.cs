@@ -40,6 +40,12 @@ public class PauseManager : MonoBehaviour
         AudioListener.pause = false;
     }
 
+    public void RestartScene() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+        AudioListener.pause = false;
+
+    }
+
     //public IEnumerator ChangeSceneCoroutine(string sceneName)
     //{
     //    Time.timeScale = 1;
