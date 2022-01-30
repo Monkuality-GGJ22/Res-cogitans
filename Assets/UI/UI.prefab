@@ -561,10 +561,10 @@ PrefabInstance:
     - target: {fileID: 9140155962216502415, guid: 3b813692f262f8c4f96ed4ee68a935fb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2693782122717435163}
     - target: {fileID: 9140155962316452110, guid: 3b813692f262f8c4f96ed4ee68a935fb, type: 3}
       propertyPath: m_Text
-      value: Main Menu
+      value: Level Select
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b813692f262f8c4f96ed4ee68a935fb, type: 3}

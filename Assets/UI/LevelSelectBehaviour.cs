@@ -25,25 +25,20 @@ public class LevelSelectBehaviour : MonoBehaviour
 
     public void Level2Clicked()
     {
-        SceneManager.LoadScene("Alimentiveness", LoadSceneMode.Single);
+        SceneManager.LoadScene("TutorialLevel", LoadSceneMode.Single);
     }
 
     public void Level3Clicked()
     {
-        SceneManager.LoadScene("aaaaaaaaaaaaaaaa", LoadSceneMode.Single);
+        SceneManager.LoadScene("Alimentiveness", LoadSceneMode.Single);
     }
 
     public void Level4Clicked()
     {
-        SceneManager.LoadScene("TutorialLevel", LoadSceneMode.Single);
+        SceneManager.LoadScene("aaaaaaaaaaaaaaaa", LoadSceneMode.Single);
     }
 
     public void Level5Clicked()
-    {
-        SceneManager.LoadScene("TutorialLevel", LoadSceneMode.Single);
-    }
-
-    public void Level6Clicked()
     {
         SceneManager.LoadScene("TutorialLevel", LoadSceneMode.Single);
     }
