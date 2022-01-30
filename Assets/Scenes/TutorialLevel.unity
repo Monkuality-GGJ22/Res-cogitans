@@ -139001,6 +139001,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1068011385}
     m_Modifications:
+    - target: {fileID: 1367222247136606066, guid: 1e2813a318be44f46815fb54f96a9d82, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1367222247136606066, guid: 1e2813a318be44f46815fb54f96a9d82, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 6.7
+      objectReference: {fileID: 0}
     - target: {fileID: 2544725140498918320, guid: 1e2813a318be44f46815fb54f96a9d82, type: 3}
       propertyPath: m_Name
       value: Neuron
@@ -139011,7 +139019,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2544725140498918324, guid: 1e2813a318be44f46815fb54f96a9d82, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 28.83
+      value: 28.41
       objectReference: {fileID: 0}
     - target: {fileID: 2544725140498918324, guid: 1e2813a318be44f46815fb54f96a9d82, type: 3}
       propertyPath: m_LocalPosition.y
@@ -139019,7 +139027,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2544725140498918324, guid: 1e2813a318be44f46815fb54f96a9d82, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.79
+      value: 2.11
       objectReference: {fileID: 0}
     - target: {fileID: 2544725140498918324, guid: 1e2813a318be44f46815fb54f96a9d82, type: 3}
       propertyPath: m_LocalRotation.w
@@ -139874,6 +139882,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.5686605
       objectReference: {fileID: 0}
+    - target: {fileID: 3051804160885989054, guid: 32301e7ac340c98439b116ef51be02dc, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 106109942}
     - target: {fileID: 3051804160885989054, guid: 32301e7ac340c98439b116ef51be02dc, type: 3}
       propertyPath: checkpoints.Array.size
       value: 5
@@ -141245,7 +141257,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2544725140498918324, guid: 1e2813a318be44f46815fb54f96a9d82, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 28.24
+      value: 28.41
       objectReference: {fileID: 0}
     - target: {fileID: 2544725140498918324, guid: 1e2813a318be44f46815fb54f96a9d82, type: 3}
       propertyPath: m_LocalPosition.y
@@ -141253,7 +141265,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2544725140498918324, guid: 1e2813a318be44f46815fb54f96a9d82, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.45
+      value: 5.35
       objectReference: {fileID: 0}
     - target: {fileID: 2544725140498918324, guid: 1e2813a318be44f46815fb54f96a9d82, type: 3}
       propertyPath: m_LocalRotation.w
@@ -142720,10 +142732,6 @@ PrefabInstance:
         the screen are your health (red) and your soul (white).
 
 
-        Watch out
-        for the pits, you''ll lose a life if you fall in them.
-
-
         Try the
         control scheme and go to the next room!'
       objectReference: {fileID: 0}
@@ -143116,11 +143124,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1367222247136606066, guid: 1e2813a318be44f46815fb54f96a9d82, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 31.7
+      value: 14.4
       objectReference: {fileID: 0}
     - target: {fileID: 1367222247136606066, guid: 1e2813a318be44f46815fb54f96a9d82, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.9
+      value: -15.6
       objectReference: {fileID: 0}
     - target: {fileID: 2544725140498918320, guid: 1e2813a318be44f46815fb54f96a9d82, type: 3}
       propertyPath: m_Name
@@ -143132,7 +143140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2544725140498918324, guid: 1e2813a318be44f46815fb54f96a9d82, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.7
+      value: 13.17
       objectReference: {fileID: 0}
     - target: {fileID: 2544725140498918324, guid: 1e2813a318be44f46815fb54f96a9d82, type: 3}
       propertyPath: m_LocalPosition.y

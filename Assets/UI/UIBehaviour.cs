@@ -26,6 +26,12 @@ public class UIBehaviour : MonoBehaviour
     [SerializeField] private GameObject body;
     private LifeBehaviour lifeBehaviour;
 
+    [Header("Checkpoint Message Settings")]
+    [SerializeField] private float checkpointDisplayTime;
+    [SerializeField] private float fadeDurationCheckpoint;
+    private GameObject checkpointMessageBG;
+    private GameObject checkpointMessageText;
+
     private void Start()
     {
         displayingMessage = false;
@@ -103,6 +109,58 @@ public class UIBehaviour : MonoBehaviour
 
         displayingMessage = false;
 
+    }
+
+    public void PrintCheckpointMessage()
+    {
+        checkpointMessageBG = transform.Find("BGCheckpointMessage").gameObject;
+        checkpointMessageText = checkpointMessageBG.transform.Find("CheckpointMessage").gameObject;
+        StartCoroutine(CheckpointShow());
+    }
+
+    private IEnumerator CheckpointShow()
+    {
+        float elapsedTimeCheckpoint = 0;
+
+        Color bgCpColor = checkpointMessageBG.GetComponent<Image>().color;
+        Color textCpColor = checkpointMessageText.GetComponent<Text>().color;
+
+        while (elapsedTimeCheckpoint < fadeDurationCheckpoint)
+        {
+            bgCpColor.a = Mathf.Lerp(0, .8f, elapsedTimeCheckpoint / fadeDuration);
+            textCpColor.a = Mathf.Lerp(0, 1f, elapsedTimeCheckpoint / fadeDuration);
+            checkpointMessageBG.GetComponent<Image>().color = bgCpColor;
+            checkpointMessageText.GetComponent<Text>().color = textCpColor;
+
+            elapsedTimeCheckpoint += Time.deltaTime;
+            yield return null;
+        }
+
+        //lerp doesn't reach exactly, so I set it manually to 0
+        bgCpColor.a = .8f;
+        textCpColor.a = 1f;
+        checkpointMessageBG.GetComponent<Image>().color = bgCpColor;
+        checkpointMessageText.GetComponent<Text>().color = textCpColor;
+
+        yield return new WaitForSeconds(checkpointDisplayTime);
+        elapsedTimeCheckpoint = 0f;
+
+        while (elapsedTimeCheckpoint < fadeDurationCheckpoint)
+        {
+            bgCpColor.a = Mathf.Lerp(.8f, 0f, elapsedTimeCheckpoint / fadeDurationCheckpoint);
+            textCpColor.a = Mathf.Lerp(1f, 0f, elapsedTimeCheckpoint / fadeDurationCheckpoint);
+            checkpointMessageBG.GetComponent<Image>().color = bgCpColor;
+            checkpointMessageText.GetComponent<Text>().color = textCpColor;
+
+            elapsedTimeCheckpoint += Time.deltaTime;
+            yield return null;
+        }
+
+        //lerp doesn't reach exactly 0, so I set it manually to 0
+        bgCpColor.a = 0f;
+        textCpColor.a = 0f;
+        checkpointMessageBG.GetComponent<Image>().color = bgCpColor;
+        checkpointMessageText.GetComponent<Text>().color = textCpColor;
     }
 
     public void setLight(float light)

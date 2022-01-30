@@ -10,6 +10,8 @@ public class RespawnManager : MonoBehaviour
     [SerializeField] LifeBehaviour life;
     [SerializeField] SoulIntensity soul;
 
+    [SerializeField] private Canvas canvas;
+
     private int activeCheckpoint;
 
     private void Start()
@@ -28,6 +30,8 @@ public class RespawnManager : MonoBehaviour
         {
             activeCheckpoint = index;
             RefillPlayer();
+
+            canvas.GetComponent<UIBehaviour>().PrintCheckpointMessage();
         }
         Debug.Log($"Checkpoint reached: {index} - current active checkpoint: {activeCheckpoint}");
     }
