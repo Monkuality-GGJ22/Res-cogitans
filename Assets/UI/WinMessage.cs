@@ -29,7 +29,7 @@ public class WinMessage : MonoBehaviour
     public void MainMenu()
     {
         HideFullscreenMessage();
-        SceneManager.LoadScene("MainMenuScene", LoadSceneMode.Single);
+        SceneManager.LoadScene("LevelSelectScreen", LoadSceneMode.Single);
     }
 }
 
