@@ -87,6 +87,7 @@ public class DarkWallActivation : RemoteActivation
         LightMovement freedSoul = other.gameObject.GetComponent<LightMovement>();
         if (freedSoul != null && freedSoul.gameObject.layer == freedSoul.GetLayer(true))
         {
+            renderer.enabled = false;
             caughtSoul = true;
             lightTrap.SetActive(true);
             soul.DisableMovement(collider.bounds);
@@ -101,6 +102,7 @@ public class DarkWallActivation : RemoteActivation
             freedSoul.EnableMovement();
             collider.isTrigger = false;
             lightTrap.SetActive(false);
+            renderer.enabled = true;
         }
     }
 }
