@@ -34,11 +34,13 @@ public class CheckpointComponent : MonoBehaviour
         int i;
         for (i= 0; i < resettableObjects.Count; ++i)
         {
-            resettableObjects[i].Respawn();
+            if (resettableObjects[i] != null)
+                resettableObjects[i].Respawn();
         }
         for (i = 0; i < neurons.Count; ++i)
         {
-            neurons[i].Respawn();
+            if (neurons[i] != null)
+                neurons[i].Respawn();
         }
     }
 
@@ -51,7 +53,14 @@ public class CheckpointComponent : MonoBehaviour
         if (activeNeurons >= neurons.Count)
         {
             clearedCheckpoint = true;
-            endWall.Activate();
+            if (endWall != null)
+            {
+                endWall.Activate();
+            }
+            else
+            {
+                Debug.LogError("No End Wall referenced on the checkpoint");
+            }
         }
 
     }

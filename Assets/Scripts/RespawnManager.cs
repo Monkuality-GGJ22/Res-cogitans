@@ -18,7 +18,8 @@ public class RespawnManager : MonoBehaviour
     {
         for (int i = 0; i < checkpoints.Count; ++i)
         {
-            checkpoints[i].Manager = this;
+            if (checkpoints[i] != null)
+                checkpoints[i].Manager = this;
         }
         activeCheckpoint = 0;
     }
@@ -39,18 +40,40 @@ public class RespawnManager : MonoBehaviour
     public bool GetActiveCheckpointClearStatus()
     {
         if (activeCheckpoint >= checkpoints.Count) return true;
-        return checkpoints[activeCheckpoint].ClearedCheckpoint;
+        if (checkpoints[activeCheckpoint] != null)
+        {
+            return checkpoints[activeCheckpoint].ClearedCheckpoint;
+        }
+        else
+        {
+            Debug.LogError($"Missing checkpoint at #{activeCheckpoint}");
+            return true;
+        }
     }
 
     public void NeuronActivated()
     {
         if (activeCheckpoint >= checkpoints.Count) return;
-        checkpoints[activeCheckpoint].OnNeuronActivated();
+        if (checkpoints[activeCheckpoint] != null)
+        {
+            checkpoints[activeCheckpoint].OnNeuronActivated();
+        }
+        else
+        {
+            Debug.LogError($"Missing checkpoint at #{activeCheckpoint}");
+        }
     }
     public void NeuronDeactivated()
     {
         if (activeCheckpoint >= checkpoints.Count) return;
-        checkpoints[activeCheckpoint].OnNeuronDeactivated();
+        if (checkpoints[activeCheckpoint] != null)
+        {
+            checkpoints[activeCheckpoint].OnNeuronDeactivated();
+        }
+        else
+        {
+            Debug.LogError($"Missing checkpoint at #{activeCheckpoint}");
+        }
     }
 
     public void RefillPlayer(bool fromDeath = false)
