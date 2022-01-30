@@ -358,7 +358,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5191362307440020769, guid: 9f2d695f1a65b554f927b2279aff02aa, type: 3}
       propertyPath: allowDeactivation
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7380994902623368752, guid: 9f2d695f1a65b554f927b2279aff02aa, type: 3}
       propertyPath: m_Name
