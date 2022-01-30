@@ -4949,8 +4949,8 @@ MonoBehaviour:
   speedInLightDivider: 1.7
   speedInLight: 0
   turnRate: 0
-  enemyForce: 18
-  stunTime: 1.5
+  enemyForce: 19
+  stunTime: 1.2
   footSteps: {fileID: 8300000, guid: 6e6fa71db4385734d87cf968be6df575, type: 3}
   hitEnemy: {fileID: 8300000, guid: 3605886a96d011d4582035a11b67a533, type: 3}
   hitPlayer: {fileID: 8300000, guid: a0f95c8688c3ba5409a8ec82621430b9, type: 3}

@@ -2996,6 +2996,10 @@ PrefabInstance:
       propertyPath: m_Tiles.Array.data[63].second.m_TileObjectToInstantiateIndex
       value: 65535
       objectReference: {fileID: 0}
+    - target: {fileID: 684265639440877933, guid: 402a0ff6053b17f44980ceeb880d7aa4, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c514015ab227b444b89ba452647d3859, type: 3}
     - target: {fileID: 2785394926906755491, guid: 402a0ff6053b17f44980ceeb880d7aa4, type: 3}
       propertyPath: m_Size.x
       value: 71
