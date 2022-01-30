@@ -44,6 +44,7 @@ public class MovingWallScript : RemoteActivation
     {
         transform.position = initialPos;
         animationTimer = -1f;
+        direction = false;
     }
 
     private void Start()
