@@ -8,7 +8,10 @@ public class WinMessage : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        ShowFullscreenMessage();
+        if (other.CompareTag("Player"))
+        {
+            ShowFullscreenMessage();
+        }
     }
 
     public void ShowFullscreenMessage() => Show();

@@ -7,6 +7,7 @@ public class PressurePlateScript : RemoteTrigger
 {
     [SerializeField] private float pressedTimer;
     [SerializeField] private Sprite off, on;
+    [SerializeField] private bool allowEnemies = false;
 
     private float timer;
     private bool remoteState;
@@ -41,7 +42,7 @@ public class PressurePlateScript : RemoteTrigger
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.transform.CompareTag("Player") || other.transform.CompareTag("Movable"))
+        if (other.transform.CompareTag("Player") || other.transform.CompareTag("Movable") || (allowEnemies && other.transform.CompareTag("Enemy")))
         {
             if (pressedTimer > 0f)
             {
