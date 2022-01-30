@@ -179,7 +179,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 85e9241afe77042cd9f90cc6b5a010f0, type: 2}
+  - {fileID: 2100000, guid: c670483bfde26b545a2a82b958dbda59, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8830,6 +8830,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Corridoio (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 2184324484962872766, guid: 0e5f9c8dbbd164b5cbfac820f9ee3592, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e5f9c8dbbd164b5cbfac820f9ee3592, type: 3}
 --- !u!4 &185570480 stripped
@@ -9173,7 +9177,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6782655066516229792, guid: 86d45d058e2d53f45b38e500819948e3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.5
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 6782655066516229792, guid: 86d45d058e2d53f45b38e500819948e3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9603,7 +9607,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: c670483bfde26b545a2a82b958dbda59, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10230,7 +10234,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6782655066516229806, guid: 86d45d058e2d53f45b38e500819948e3, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6782655066516229807, guid: 86d45d058e2d53f45b38e500819948e3, type: 3}
       propertyPath: m_Size.x
@@ -10626,7 +10630,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 85e9241afe77042cd9f90cc6b5a010f0, type: 2}
+  - {fileID: 2100000, guid: c670483bfde26b545a2a82b958dbda59, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11210,7 +11214,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 85e9241afe77042cd9f90cc6b5a010f0, type: 2}
+  - {fileID: 2100000, guid: c670483bfde26b545a2a82b958dbda59, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11944,6 +11948,10 @@ PrefabInstance:
     - target: {fileID: 2433347506177302070, guid: 28a7b70caeec64154b5283b380ab30f0, type: 3}
       propertyPath: m_Name
       value: PianoStanzaPiccoloPrefabboso (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2433347506177302070, guid: 28a7b70caeec64154b5283b380ab30f0, type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     - target: {fileID: 2433347507055916201, guid: 28a7b70caeec64154b5283b380ab30f0, type: 3}
       propertyPath: m_Tiles.Array.size
@@ -13710,7 +13718,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: c670483bfde26b545a2a82b958dbda59, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14330,7 +14338,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6200086142392486966, guid: 75278c0156c4af147976baa085c2040e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.07
+      value: 2.9
       objectReference: {fileID: 0}
     - target: {fileID: 6200086142392486966, guid: 75278c0156c4af147976baa085c2040e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -14338,7 +14346,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6200086142392486966, guid: 75278c0156c4af147976baa085c2040e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 24.92
+      value: 24.9
       objectReference: {fileID: 0}
     - target: {fileID: 6200086142392486966, guid: 75278c0156c4af147976baa085c2040e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -14503,7 +14511,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 85e9241afe77042cd9f90cc6b5a010f0, type: 2}
+  - {fileID: 2100000, guid: c670483bfde26b545a2a82b958dbda59, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -15865,7 +15873,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: c670483bfde26b545a2a82b958dbda59, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -16001,7 +16009,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 85e9241afe77042cd9f90cc6b5a010f0, type: 2}
+  - {fileID: 2100000, guid: c670483bfde26b545a2a82b958dbda59, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -22687,6 +22695,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PianoStanzaPiccoloPrefabboso (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2433347506177302070, guid: 28a7b70caeec64154b5283b380ab30f0, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     - target: {fileID: 2433347507454237121, guid: 28a7b70caeec64154b5283b380ab30f0, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.7071068
@@ -22720,6 +22732,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8808648598991362676, guid: 5a4e6010760be484f8d6ef18e18f64a0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c670483bfde26b545a2a82b958dbda59, type: 2}
     - target: {fileID: 8808648598991362678, guid: 5a4e6010760be484f8d6ef18e18f64a0, type: 3}
       propertyPath: m_Name
       value: Walls
