@@ -28,7 +28,7 @@ public class LifeBehaviour : MonoBehaviour
         CurrentHealth--;
         if(CurrentHealth <= 0)
         {
-            respawnManager.RestartCheckpoint();
+            respawnManager.RestartCheckpoint(true);
             deadOnce = true;
         }
     }

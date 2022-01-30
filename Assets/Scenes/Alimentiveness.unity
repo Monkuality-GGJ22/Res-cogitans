@@ -782,6 +782,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: WinMessage, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 5485646361573192351, guid: 004688782fb2f0e43aff901f8d36a9b4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5485646361573192351, guid: 004688782fb2f0e43aff901f8d36a9b4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5485646361573192351, guid: 004688782fb2f0e43aff901f8d36a9b4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PauseManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 6049153428635313081, guid: 004688782fb2f0e43aff901f8d36a9b4, type: 3}
       propertyPath: m_Text
       value: Break a leg!

@@ -46,6 +46,16 @@ public class PauseManager : MonoBehaviour
 
     }
 
+    public void RestartCheckPoint()
+    {
+
+        GameObject.Find("Player").GetComponent<RespawnManager>().RestartCheckpoint(false);
+        gameIsPaused = !gameIsPaused;
+        PauseGame();
+        AudioListener.pause = false;
+
+    }
+
     //public IEnumerator ChangeSceneCoroutine(string sceneName)
     //{
     //    Time.timeScale = 1;
