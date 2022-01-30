@@ -161,7 +161,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-    public void Respawn(Vector3? pos = null)
+    public void Respawn(bool playSound, Vector3? pos = null)
     {   
         if (pos == null)
         {
@@ -173,7 +173,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 audioSource.Stop();
             }
-            if (!audioSource.isPlaying)
+            if (!audioSource.isPlaying && playSound)
             {
                 audioSource.clip = death;
                 audioSource.Play();

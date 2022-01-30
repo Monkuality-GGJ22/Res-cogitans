@@ -55,17 +55,17 @@ public class RespawnManager : MonoBehaviour
         soul.RefillLight(fromDeath);
     }
 
-    public void RestartCheckpoint()
+    public void RestartCheckpoint(bool playSound)
     {
         RefillPlayer(true);
         if (activeCheckpoint >= checkpoints.Count) return;
-        body.Respawn(checkpoints[activeCheckpoint].transform.position);
+        body.Respawn(playSound,checkpoints[activeCheckpoint].transform.position);
         checkpoints[activeCheckpoint].ResetObjects();
     }
 
-    public void RespawnPlayer()
+    public void RespawnPlayer(bool playSound)
     {
-        body.Respawn();
+        body.Respawn(playSound);
         life.DamagePlayer();
     }
 

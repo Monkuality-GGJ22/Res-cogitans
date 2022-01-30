@@ -14,7 +14,7 @@ public class Kill_Y : MonoBehaviour
     {
         if (collision.transform.CompareTag("Player"))
         {
-            respawnManager.RespawnPlayer();
+            respawnManager.RespawnPlayer(true);
         }
         else if (collision.transform.CompareTag("Enemy"))
         {
