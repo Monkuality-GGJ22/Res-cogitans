@@ -68,10 +68,6 @@ public class LightMovement : MonoBehaviour
     {
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        olderPosition = previousPosition;
-
-        previousPosition = transform.position;
-
         if (startupTimer < startupTime)
         {
             startupTimer += Time.deltaTime;
@@ -113,13 +109,7 @@ public class LightMovement : MonoBehaviour
             newPosition = center - dir;
         }
 
-        if (newPosition != null && olderPosition!= previousPosition) {
-            soulIntensity.MovingFactor = Vector3.Distance(olderPosition, previousPosition);
-        }
-        else
-        {
-            soulIntensity.MovingFactor = 0f;
-        }
+        
     }
 
     private void FixedUpdate()
@@ -133,10 +123,26 @@ public class LightMovement : MonoBehaviour
         //{
         //    rbody.velocity = Vector3.zero;
         //}
+        //olderPosition = previousPosition;
+        olderPosition = previousPosition;
+
+        previousPosition = transform.position;
+
         var dir = newPosition - previousPosition;
         rbody.velocity = dir * lightSpeed * Time.fixedDeltaTime;
 
         if (drawDebugDir) Debug.DrawLine(previousPosition, newPosition, Color.green, 1);
+
+        if (newPosition != null && olderPosition != previousPosition)
+        {            
+            soulIntensity.MovingFactor = Vector3.Distance(olderPosition, previousPosition);
+            print(soulIntensity.MovingFactor);
+        }
+        else
+        {
+            soulIntensity.MovingFactor = 0f;
+        }
+
     }
 
     public void ForceSetPos()
