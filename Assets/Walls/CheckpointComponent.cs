@@ -31,6 +31,8 @@ public class CheckpointComponent : MonoBehaviour
     {
         if (clearedCheckpoint) return;
 
+        activeNeurons = 0;
+
         int i;
         for (i= 0; i < resettableObjects.Count; ++i)
         {
