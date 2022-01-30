@@ -133,14 +133,8 @@ public class LightMovement : MonoBehaviour
 
         if (drawDebugDir) Debug.DrawLine(previousPosition, newPosition, Color.green, 1);
 
-        print(newPosition + "\n");
-        print(previousPosition + "\n");
-        print(olderPosition + "\n");
-
         if (newPosition != null && olderPosition != previousPosition)
-        {
-            print("ciao");
-            
+        {            
             soulIntensity.MovingFactor = Vector3.Distance(olderPosition, previousPosition);
             print(soulIntensity.MovingFactor);
         }
