@@ -45,6 +45,6 @@ public class GameOverMessage : MonoBehaviour
         AudioListener.pause = false;
         Time.timeScale = 1;        
         newHigh.SetActive(false);
-        SceneManager.LoadScene("MainMenuScene", LoadSceneMode.Single);        
+        SceneManager.LoadScene("LevelSelectScreen", LoadSceneMode.Single);        
     }
 }

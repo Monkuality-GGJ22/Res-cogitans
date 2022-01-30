@@ -660,7 +660,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 902658080708386697, guid: 004688782fb2f0e43aff901f8d36a9b4, type: 3}
       propertyPath: m_Text
-      value: Alimentiveness
+      value: Level 3 - Alimentiveness
       objectReference: {fileID: 0}
     - target: {fileID: 1414345487439223696, guid: 004688782fb2f0e43aff901f8d36a9b4, type: 3}
       propertyPath: m_AnchorMax.x
@@ -796,7 +796,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6049153428635313081, guid: 004688782fb2f0e43aff901f8d36a9b4, type: 3}
       propertyPath: m_Text
-      value: Break a leg!
+      value: 'Will you be able to reach the end?
+
+
+        Break a leg!'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 004688782fb2f0e43aff901f8d36a9b4, type: 3}

@@ -74352,7 +74352,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9140155962316452110, guid: 3b813692f262f8c4f96ed4ee68a935fb, type: 3}
       propertyPath: m_Text
-      value: Main Menu
+      value: Level Select
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b813692f262f8c4f96ed4ee68a935fb, type: 3}
@@ -75321,6 +75321,10 @@ PrefabInstance:
       propertyPath: soul
       value: 
       objectReference: {fileID: 295382341}
+    - target: {fileID: 4601499376868721960, guid: 004688782fb2f0e43aff901f8d36a9b4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4818222444850242334, guid: 004688782fb2f0e43aff901f8d36a9b4, type: 3}
       propertyPath: m_SizeDelta.y
       value: 47
