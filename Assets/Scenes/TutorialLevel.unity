@@ -142523,6 +142523,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 240303003520262313, guid: 004688782fb2f0e43aff901f8d36a9b4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 80294906}
+    - target: {fileID: 240303003520262313, guid: 004688782fb2f0e43aff901f8d36a9b4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 240303003520262313, guid: 004688782fb2f0e43aff901f8d36a9b4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PauseManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 902658080708386697, guid: 004688782fb2f0e43aff901f8d36a9b4, type: 3}
       propertyPath: m_Text
       value: Level 1 - Animal

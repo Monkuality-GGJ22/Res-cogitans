@@ -75049,6 +75049,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 240303003520262312, guid: 004688782fb2f0e43aff901f8d36a9b4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -319
+      objectReference: {fileID: 0}
     - target: {fileID: 902658080708386697, guid: 004688782fb2f0e43aff901f8d36a9b4, type: 3}
       propertyPath: m_Text
       value: Brawl mode!
@@ -75144,6 +75148,10 @@ PrefabInstance:
     - target: {fileID: 2406084677200253115, guid: 004688782fb2f0e43aff901f8d36a9b4, type: 3}
       propertyPath: m_SizeDelta.y
       value: 47
+      objectReference: {fileID: 0}
+    - target: {fileID: 2406084677200253115, guid: 004688782fb2f0e43aff901f8d36a9b4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -118
       objectReference: {fileID: 0}
     - target: {fileID: 2903602813271156091, guid: 004688782fb2f0e43aff901f8d36a9b4, type: 3}
       propertyPath: m_SizeDelta.x
@@ -75321,9 +75329,17 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: HideFullscreenMessage
       objectReference: {fileID: 0}
+    - target: {fileID: 5485646361573192350, guid: 004688782fb2f0e43aff901f8d36a9b4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -319
+      objectReference: {fileID: 0}
     - target: {fileID: 5664785787547415430, guid: 004688782fb2f0e43aff901f8d36a9b4, type: 3}
       propertyPath: m_SizeDelta.y
       value: 47
+      objectReference: {fileID: 0}
+    - target: {fileID: 5664785787547415430, guid: 004688782fb2f0e43aff901f8d36a9b4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -118
       objectReference: {fileID: 0}
     - target: {fileID: 5664785787547415431, guid: 004688782fb2f0e43aff901f8d36a9b4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -75387,6 +75403,10 @@ PrefabInstance:
     - target: {fileID: 8951312510303978085, guid: 004688782fb2f0e43aff901f8d36a9b4, type: 3}
       propertyPath: m_SizeDelta.y
       value: 47
+      objectReference: {fileID: 0}
+    - target: {fileID: 8951312510303978085, guid: 004688782fb2f0e43aff901f8d36a9b4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -118
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 004688782fb2f0e43aff901f8d36a9b4, type: 3}
